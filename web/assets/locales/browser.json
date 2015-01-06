@@ -1,0 +1,9 @@
+{
+  "locales": [
+    "en-US",
+    "es-AR"
+  ],
+  "resources": [
+    "{{locale}}/website.l20n"
+  ]
+}

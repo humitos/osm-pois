@@ -1,0 +1,50 @@
+<name "L20n">
+
+<sidebar {
+  home: {
+    title: "Puntos de interés",
+    content: """
+  
+"""
+  },
+}>
+
+<sidebarHomeTitle "Puntos de interés">
+<sidebarHomeContent """
+  	  <p>Esta web permite visualizar diferentes <em>Puntos de
+	  Interés</em> sobre un mapa. Los diferentes tipos de puntos
+	  pueden ser seleccionados desde el globo que se encuentra
+	  arriba a la derecha, pudiendo seleccionar varios a la
+	  vez.</p>
+
+	  <img src="assets/img/help-select-pois.jpg">
+
+	  <p>Una vez seleccionados los puntos de interés, los mismos
+	  se mostrarán en el mapa luego de algunos segundos
+	  (dependiendo de la conexión a internet) con diferentes
+	  íconos y colores para una rápida visualización.</p>
+
+	  <img src="assets/img/help-show-pois.jpg">
+
+	  <p>Si al seleccionar los POIs que quieres mostrar en el
+	  mapa, te aparece un mensaje como este:</p>
+
+	  <img src="assets/img/help-message.jpg">
+
+	  <p>Tenés que agrandar un poco más el mapa para que aparezcan
+	  los puntos.</p>
+
+	  <p>A la izquierda están los controles para hacer agrandar y
+	  achicar el mapa (también funciona con la ruedita del
+	  mouse).</p>
+
+	  <img src="assets/img/help-controls.jpg">
+
+	  <p>Además hay un ícono con una "flechita" que sirve para
+	  centrar el mapa en la posición en la que te encuentras
+	  actualmente.</p>
+
+	  <img src="assets/img/help-my-position.jpg">
+
+	  <p>¡Espero que te sea de utilidad!</p>
+""">
