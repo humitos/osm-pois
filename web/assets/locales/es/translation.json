@@ -1,0 +1,12 @@
+{
+    "sidebar": {
+	"home": {
+	    "title": "Puntos de interés",
+	    "p1": "Esta web permite visualizar diferentes <em>Puntos de Interés</em> sobre un mapa. Los diferentes tipos de puntos pueden ser seleccionados desde el globo que se encuentra arriba a la derecha, pudiendo seleccionar varios a la vez.",
+	    "p2": "Una vez seleccionados los puntos de interés, los mismos se mostrarán en el mapa luego de algunos segundos (dependiendo de la conexión a internet) con diferentes íconos y colores para una rápida visualización."
+	},
+	"faq": "Preguntas frecuentes",
+	"about": "Acerca de...",
+	"links": "Enlaces de interés"
+    }
+}
