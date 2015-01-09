@@ -6,6 +6,8 @@ var map = new L.Map('map');
 var iconLayer = new L.LayerGroup();
 map.addLayer(iconLayer);
 
+var mapMarkers = {};
+
 // https://github.com/perliedman/leaflet-control-geocoder
 var geocoder = L.Control.geocoder({
     position: 'topleft',
@@ -198,15 +200,20 @@ function callback(data) {
 	    markerColor: icon.markerColor,
 	    prefix: 'fa'
 	});
-	var marker = L.marker(pos, {icon: markerIcon})
-	var markerPopup = '<h3>Etiquetas</h3>';
+	var marker = L.marker(pos, {icon: markerIcon});
+	var markerData = {osm_id: e.id, lat: e.lat, lon: e.lon};
+	mapMarkers[e.id] = markerData;
+	var markerPopup = Mustache.render(
+	    '<h3><span class="fa fa-star-o" onclick="toggle_favorite_marker(this, {{osm_id}}, {{lat}}, {{lon}});"></span> Etiquetas</h3>',
+	    markerData
+	);
 	for(tag in e.tags) {
 	    markerPopup += Mustache.render(
 		'<strong>{{name}}:</strong> {{value}}<br>',
 		{name: tag, value: e.tags[tag]});
 	}
 
-	marker.bindPopup(markerPopup)
+	marker.bindPopup(markerPopup);
 	marker.addTo(this.instance);
     }
 }
@@ -226,6 +233,7 @@ function build_overpass_query() {
 function setting_changed() {
     // remove icons from current map
     iconLayer.clearLayers();
+    mapMarkers = [];
     build_overpass_query();
     show_overpass_layer();
     update_permalink();
@@ -267,12 +275,13 @@ if (!map.restoreView()) {
 var query = '';
 build_overpass_query();
 
+var opl;
 function show_overpass_layer() {
     if(query == '' || query == '();out;') {
 	console.debug('There is nothing selected to filter by.');
 	return;
     }
-    var opl = new L.OverPassLayer({
+    opl = new L.OverPassLayer({
 	query: query,
 	callback: callback,
 	minzoom: 14,
@@ -295,4 +304,101 @@ function get_permalink() {
 function update_permalink() {
     var link = get_permalink();
     $('#permalink').attr('href', link);
+}
+
+
+// https://github.com/makinacorpus/Leaflet.FileLayer
+L.Control.fileLayerLoad({
+    // See http://leafletjs.com/reference.html#geojson-options
+    layerOptions: {
+	style: {color:'red'},
+	pointToLayer: function(feature, latlng) {
+	    console.info(feature);
+	    console.info(latlng);
+	},
+	onEachFeature: function(feature, layer) {
+	    console.debug(feature);
+	    var osmNodeId = feature.properties.desc.split('=')[1];
+	    console.info(osmNodeId);
+	    if (!mapMarkers[osmNodeId]) {
+		console.info('There is no marker for this osmNodeId');
+
+		// TODO: save in favoritesMarkers
+		var markerIcon  = L.AwesomeMarkers.icon({
+                    icon: 'star',
+                    markerColor: 'red',
+                    prefix: 'fa'
+                });
+                var pos = new L.LatLng(
+		    feature.geometry.coordinates['0'],
+		    feature.geometry.coordinates['1']
+		);
+                var marker = L.marker(pos, {icon: markerIcon});
+                marker.addTo(layer);
+            }
+            else {
+        	// TODO:
+		// 1. put filled star in popup
+		// 2. highlight the icon
+		console.info('This point already exists in OSM');
+	    }
+	}
+    },
+    // Add to map after loading (default: true) ?
+    addToMap: true,
+    // File size limit in kb (default: 1024) ?
+    fileSizeLimit: 256,
+    // Restrict accepted file formats (default: .geojson, .kml, and .gpx) ?
+    formats: ['.gpx']
+}).addTo(map);
+
+
+function generate_favorites() {
+    function destroyClickedElement(event) {
+	document.body.removeChild(event.target);
+    }
+
+    // - lat, lon
+    // - osm_id
+    GeoJSON.parse(data, {Point: ['lat', 'lon']}, function(geojson){
+	console.debug(geojson);
+	var textFileAsBlob = new Blob([togpx(geojson)], {type:'text/xml'});
+	var downloadLink = document.createElement('a');
+	var fileNameToSaveAs = 'favorites.gpx';
+	downloadLink.download = fileNameToSaveAs;
+	downloadLink.innerHTML = 'Download File';
+	if (window.webkitURL != null) {
+	    // webkit
+	    downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+	}
+	else {
+	    // firefox
+	    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+	    downloadLink.onclick = destroyClickedElement;
+	    downloadLink.style.display = 'none';
+	    document.body.appendChild(downloadLink);
+	}
+	downloadLink.click();
+    });
+}
+
+var data = [];
+function toggle_favorite_marker(element, osm_id, lat, lon) {
+    element = $(element);
+    if (element.hasClass('fa-star-o')) {
+	data.push({osm_id: osm_id, lat: lat, lon: lon});
+	element.removeClass('fa-star-o');
+	element.addClass('fa-star');
+    }
+    else {
+	for (i = 0; i < data.length; i++) {
+	    if (data[i] && data[i].osm_id === osm_id) {
+		// FIXME: this makes that position 'undefined'
+		delete data[i];
+		break;
+	    }
+	}
+	element.removeClass('fa-star');
+	element.addClass('fa-star-o');	
+    }
 }
