@@ -14,64 +14,76 @@ var attribution = 'Datos &#169; Colaboradores <a href="http://openstreetmap.org/
 var tileLayerData = {
     std: {
 	name: 'Estándar (Mapnik)',
-	url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+	url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+	zoom: '19'
     },
     hot: {
 	name: 'Equipo Humanitario',
 	url: 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
-	attribution: 'Teselas <a href="http://hot.openstreetmap.org/" target="_blank">Equipo Humanitario OpenStreetMap</a>'
+	attribution: 'Teselas <a href="http://hot.openstreetmap.org/" target="_blank">Equipo Humanitario OpenStreetMap</a>',
+	zoom: '20'
     },
     osmfr: {
 	name: 'OSM Francia',
 	url: 'http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png',
-	attribution: 'Teselas <a href="http://openstreetmap.fr/" target="_blank">OpenStreetMap Francia</a>'
+	attribution: 'Teselas <a href="http://openstreetmap.fr/" target="_blank">OpenStreetMap Francia</a>',
+	zoom: '20'
     },
     cycle: {
 	name: 'Bicicleta',
 	url: 'http://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png',
-	attribution: 'Teselas <a href="http://thunderforest.com/opencyclemap/" target="_blank">ThunderForest</a>'
+	attribution: 'Teselas <a href="http://thunderforest.com/opencyclemap/" target="_blank">ThunderForest</a>',
+	zoom: '18'
     },
     transport: {
 	name: 'Transporte Público',
 	url: 'http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png',
-	attribution: 'Teselas <a href="http://thunderforest.com/transport/" target="_blank">ThunderForest</a>'
+	attribution: 'Teselas <a href="http://thunderforest.com/transport/" target="_blank">ThunderForest</a>',
+	zoom: '20'
     },
     landscape: {
 	name: 'Paisaje',
 	url: 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',
-	attribution: 'Teselas <a href="http://thunderforest.com/landscape/" target="_blank">ThunderForest</a>'
+	attribution: 'Teselas <a href="http://thunderforest.com/landscape/" target="_blank">ThunderForest</a>',
+	zoom: '18'
     },
     outdoor: {
 	name: 'Al Aire Libre',
 	url: 'http://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png',
-	attribution: 'Teselas <a href="http://thunderforest.com/outdoors/" target="_blank">ThunderForest</a>'
+	attribution: 'Teselas <a href="http://thunderforest.com/outdoors/" target="_blank">ThunderForest</a>',
+	zoom: '18'
     },
     lyrk: {
 	name: 'Lyrk',
 	url: 'http://tiles.lyrk.org/ls/{z}/{x}/{y}?apikey=3d836013a4ab468f965bfd1328d89522',
-	attribution: 'Teselas <a href="http://lyrk.de/" target="_blank">Lyrk</a>'
+	attribution: 'Teselas <a href="http://lyrk.de/" target="_blank">Lyrk</a>',
+	zoom: '18'
     },
     mapbox: {
 	name: 'MapBox (Calles)',
 	url: 'http://{s}.tiles.mapbox.com/v3/51114u9.kogin3jb/{z}/{x}/{y}.png',
-	attribution: 'Teselas <a href="http://mapbox.com/" target="_blank">MapBox</a>'
+	attribution: 'Teselas <a href="http://mapbox.com/" target="_blank">MapBox</a>',
+	zoom: '19'
     },
     mapquest: {
 	name: 'MapQuest Open',
 	url: 'http://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
 	attribution: 'Teselas <a href="http://mapquest.com/" target="_blank">MapQuest</a>',
-	subdomains: '123'
+	subdomains: '123',
+	zoom: '18'
     },
     mapsurfer: {
 	name: 'OpenMapSurfer',
 	url: 'http://openmapsurfer.uni-hd.de/tiles/roads/x={x}&y={y}&z={z}',
-	attribution: 'Teselas <a href="http://giscience.uni-hd.de/" target="_blank">GIScience Research Group @ Heidelberg University</a>'
+	attribution: 'Teselas <a href="http://giscience.uni-hd.de/" target="_blank">GIScience Research Group @ Heidelberg University</a>',
+	zoom: '19'
     }
 };
 
 var tileLayers = {};
 for (tile in tileLayerData) {
     var tileAttribution;
+    var tilemaxZoom = tileLayerData[tile].zoom;
     var subdomains = tileLayerData[tile].subdomains ? tileLayerData[tile].subdomains : 'abc';
     if (tileLayerData[tile].attribution) {
 	tileAttribution = tileLayerData[tile].attribution + ' &mdash; ' + attribution;
@@ -80,12 +92,13 @@ for (tile in tileLayerData) {
 
     tileLayers[tileLayerData[tile].name] = L.tileLayer(
 	tileLayerData[tile].url,
-	{attribution: tileAttribution, subdomains: subdomains}
+	{maxNativeZoom: tilemaxZoom, maxZoom: 20, attribution: tileAttribution, subdomains: subdomains}
     )
 }
 
 tileLayers['Estándar (Mapnik)'].addTo(map);
 L.control.layers(tileLayers).addTo(map);
+
 
 // https://github.com/perliedman/leaflet-control-geocoder
 var geocoder = L.Control.geocoder({
