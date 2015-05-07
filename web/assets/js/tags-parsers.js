@@ -95,6 +95,25 @@ function email_parser(element) {
     return markerPopup;
 }
 
+function phone_parser(element) {
+    var tags = element.tags;
+    var tag = tags.phone ? tags.phone : tags['contact:phone'];
+    var markerPopup = '';
+
+    if (tag) {
+	if (tag.indexOf('+') == -1) return markerPopup
+	var link = Mustache.render(
+	    '<a href="tel:{{phone}}" target="_blank">{{phone}}</a>',
+	    {phone: tag}
+	);
+	markerPopup += Mustache.render(
+	    tagTmpl,
+	    {tag: 'Telèfon', value: link, iconName: 'phone'}
+	);
+    }
+    return markerPopup;
+}
+
 function generic_tag_parser(element, tag, tagName, iconName) {
     var tags = element.tags;
     var markerPopup = '';
@@ -218,8 +237,7 @@ function parse_tags(element, titlePopup, functions) {
     functions = [
 	{callback: generic_tag_parser, tag: 'name', label: 'Nombre'},
 	{callback: address_parser},
-	{callback: generic_tag_parser, tag: 'phone', label: 'Teléfono', iconName: 'phone'},
-	{callback: generic_tag_parser, tag: 'contact:phone', label: 'Teléfono', iconName: 'phone'},
+	{callback: phone_parser},
 	{callback: generic_tag_parser, tag: 'contact:fax', label: 'Fax', iconName: 'fax'},
 	{callback: internet_access_parser},
 	{callback: email_parser},
