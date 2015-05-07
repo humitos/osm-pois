@@ -146,6 +146,9 @@ L.control.locate({
     }
 }).addTo(map);
 
+// https://github.com/rowanwins/leaflet-easyPrint
+L.easyPrint().addTo(map)
+
 // https://github.com/ebrelsford/Leaflet.loading
 var loadingControl = L.Control.loading({
     separate: true
