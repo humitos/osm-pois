@@ -35,7 +35,6 @@
 	<li><a href="#about" role="tab"><i class="fa fa-user"></i></a></li>
 	<li><a href="#links" role="tab"><i class="fa fa-link"></i></a></li>
 	<li><a href="#software" role="tab"><i class="fa fa-cogs"></i></a></li>
-	<li><a href="#comments" role="tab"><i class="fa fa-comments"></i></a></li>
 	<li><a href="#developer" role="tab"><i class="fa fa-code"></i></a></li>
       </ul>
 
@@ -259,25 +258,6 @@
 	  <p>¡Gracias a todos ellos funciona este sitio web!</p>
 	</div>
 
-	<div class="sidebar-pane" id="comments">
-	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span></div>
-	  <h1>Comentarios</h1>
-	  <p>¡Dejá un comentario para <strong id="comment-name">nuestro website</strong>!</p>
-	  <div id="disqus_thread"></div>
-	  <script type="text/javascript">
-	    var disqus_shortname = 'osmpois'; // required: replace example with your forum shortname
-	    var disqus_identifier = 'pois-homepage';
-	    var disqus_url = 'http://pois.elblogdehumitos.com.ar/';
-
-	    /* * * DON'T EDIT BELOW THIS LINE * * */
-	    (function() {
-		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	    })();
-	  </script>
-	  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-	</div>
 	<div class="sidebar-pane" id="developer">
 	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span></div>
 	  <h1>Modo experto</h1>
@@ -334,7 +314,7 @@
     <script src="assets/js/site.functions.js"></script>
     <script src="assets/js/site.js"></script>
 
-    <!-- Piwik 
+    <!-- Piwik -->
     <script type="text/javascript">
       var _paq = _paq || [];
       _paq.push(['trackPageView']);
@@ -346,7 +326,7 @@
 	  var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
 	  g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
       })();
-    </script>-->
+    </script>
     <noscript><p><img src="//elblogdehumitos.com.ar/piwik/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
     <!-- End Piwik Code -->
   </body>

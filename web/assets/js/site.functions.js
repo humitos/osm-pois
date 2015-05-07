@@ -76,17 +76,6 @@ function callback(data) {
 	marker.on('click', function(e) {
 	    var element = e.target._element;
 	    $('#developer > .tags').html(develop_parser(element));
-
-	    var name = element.tags.name ? element.tags.name : element.id;
-	    $('#comments #comment-name').html(name);
-	    // reload disqus thread
-	    DISQUS.reset({
-		reload: true,
-		config: function () {
-		    this.page.identifier = element.id;
-		    this.page.url = 'http://pois.elblogdehumitos.com.ar/#!' + element.id;
-		}
-	    });
 	});
 
 	if (poi.tagParser) var markerPopup = poi.tagParser(e);
