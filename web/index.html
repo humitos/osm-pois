@@ -30,6 +30,7 @@
       <!-- Nav tabs -->
       <ul class="sidebar-tabs" role="tablist">
 	<li><a href="#home" role="tab"><i class="fa fa-map-marker"></i></a></li>
+	<li><a href="#search" role="tab"><i class="fa fa-search"></i></a></li>
 	<li><a href="#about" role="tab"><i class="fa fa-user"></i></a></li>
 	<li><a href="#links" role="tab"><i class="fa fa-link"></i></a></li>
 	<li><a href="#developer" role="tab"><i class="fa fa-code"></i></a></li>
@@ -82,6 +83,61 @@
 	  <br>
 	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-arrow-up"
           onClick="location.href='#home_init'"> Inici</button></center>
+	</div>
+
+	<!--CERCA-->
+	<A NAME="search_init"></A>
+	<div class="sidebar-pane" id="search">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+          </div>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-support"
+          onClick="location.href='#help_search'"> Ajuda (cerca)</button></center>
+	  <!--Cerca a la Palma-->
+	  <h1>Cerca local<br><small>a la Palma de Cervelló</small></h1>
+	  <center><p><font style="font-family: verdana; font:size: 8px;">Cerqueu una adreça, un comerç, un nom
+           de casa, una masia, una font...</font>
+          <br><br>
+	  <input type="text" name="addr" value="" id="addr" width="100%" /><br>
+	  <button class="fa fa-search" type="button" onclick="addr_search();"> Cerca</button> <button class="fa
+          fa-trash" type="button" onclick="clear_layer2();"> Neteja</button></p></center>
+	  <div id="results"/>
+	  </div>
+
+          <br><hr width="90%">
+		
+	  <!--Cerca global-->	
+	  <h1>Cerca global<br><small>a tot el Món</small></h1>
+	  <center><p><font style="font-family: verdana; font:size: 8px;">Cerqueu una població, una adreça, un
+           comerç...</font><br><br>
+	  <input type="text" name="addr2" value="" id="addr2" width="100%" /><br>
+	  <button class="fa fa-search" type="button" onclick="addr_search2();"> Cerca</button> <button class="fa
+           fa-trash" type="button" onclick="clear_layer3();"> Neteja</button></p></center>
+	  <div id="results2"/>
+	  </div>
+
+     	  <br><hr width="90%">
+
+	  <!--Cerca - ajuda -->
+	  <A NAME="help_search"></A>
+	  <h1><span class="fa fa-support"></span> Ajuda</h1>
+	  <p style="text-align:justify; margin-right:5px;">Des d'aquesta secció podeu fer cerques tant
+          limitades a la zona de la Palma de Cervelló (cerca local) com a qualsevol lloc del Món. Per fer-ho
+           cal introduir la vostra cerca a la caixa:</p>
+	  <center><img src="assets/img/help/cerca.png" width="60%"></center>
+	  <p style="text-align:justify; margin-right:5px;">A continuació cal prémer el botó «Cerca» i
+          apareixeran un màxim de cinc resultats (a la cerca global en seran deu), com es mostra en aquesta
+           imatge:</p>
+	  <center><img src="assets/img/help/cerca1.png" width="90%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Finalment només cal que seleccioneu el resultat que
+	  voleu visualitzar al mapa, i si no us agrada podeu tornar a obrir aquesta secció per seleccionar-ne 
+	  altre. Els resultats es mostraran a la cerca global en cercles verds els nodes i en caixes vermelles 
+          les vies, i a la cerca gobal en cercles i caixes blaves.</p>
+	  <center><img src="assets/img/help/cerca2.png" width="90%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Les caixes i els cercles que es dibuixen al mapa es 
+	  poden fer desaparèixer prement el botó «Neteja».</p>
+	  <br>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-arrow-up"
+          onClick="location.href='#search_init'"> Inici</button></center>
 	</div>
 
 	<div class="sidebar-pane" id="about">
