@@ -29,114 +29,59 @@
     <div id="sidebar" class="sidebar collapsed">
       <!-- Nav tabs -->
       <ul class="sidebar-tabs" role="tablist">
-	<li><a href="#home" role="tab"><i class="fa fa-home"></i></a></li>
-	<li><a href="#help" role="tab"><i class="fa fa-info-circle"></i></a></li>
-	<li><a href="#faq" role="tab"><i class="fa fa-question"></i></a></li>
+	<li><a href="#home" role="tab"><i class="fa fa-map-marker"></i></a></li>
 	<li><a href="#about" role="tab"><i class="fa fa-user"></i></a></li>
 	<li><a href="#links" role="tab"><i class="fa fa-link"></i></a></li>
-	<li><a href="#software" role="tab"><i class="fa fa-cogs"></i></a></li>
 	<li><a href="#developer" role="tab"><i class="fa fa-code"></i></a></li>
       </ul>
 
       <!-- Tab panes -->
       <div class="sidebar-content active">
 
+	<!--PUNTS D'INTERÈS-->
+	<A NAME="home_init"></A>
 	<div class="sidebar-pane" id="home">
-	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span></div>
-	  <h1>Puntos de Interés</h1>
-	  <p>Elige los puntos que quieras visualizar en el mapa y
-	  luego cierra esta pestaña haciendo click en la <em>X</em>
-	  para una mejor visualización.</p>
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-support"
+          onClick="location.href='#help_home'"> Ajuda (PDI)</button></center>
+	  <h1>Punts d'interès</h1>
+	  <p>Seleccioneu els punts que voleu visualitzar al mapa i després tanqueu aquest panell fent clic a
+           la <b>«X»</b> per poder visualitzar-lo més bé.</p>
 	  <p class="permalink">
-	    <span class="fa fa-link"></span>
-	    <a id="permalink" href="#">Compartir este mapa (link)</a>
+	  <span class="fa fa-link"></span>
+	  <a id="permalink" href="#">Comparteix aquest mapa (enllaç)</a>
 	  </p>
-
 	  <div id="pois"></div>
-	</div>
-
-	<div class="sidebar-pane" id="help">
-	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span></div>
-	  <h1>Ayuda</h1>
-	  <p>Esta web permite visualizar diferentes <em>Puntos de
-	  Interés</em> sobre un mapa. Los diferentes tipos de puntos
-	  pueden ser seleccionados desde la barra a la izquierda que
-	  se muestra al inicio (o bien haciendo click en <em>"la
-	  casita"</em>), pudiendo seleccionar varios a la vez.</p>
-
-	  <img src="assets/img/help-select-pois.jpg">
-
-	  <p>Una vez seleccionados los puntos de interés, los mismos
-	  se mostrarán en el mapa luego de algunos segundos
-	  (dependiendo de la conexión a internet) con diferentes
-	  íconos y colores para una rápida visualización.</p>
-
-	  <img src="assets/img/help-show-pois.jpg">
-
-	  <p>Si al seleccionar los POIs que quieres mostrar en el
-	  mapa, te aparece un mensaje como este:</p>
-
-	  <img src="assets/img/help-message.jpg">
-
-	  <p>Tenés que agrandar un poco más el mapa para que aparezcan
-	  los puntos.</p>
-
-	  <p>A la izquierda están los controles para hacer agrandar y
-	  achicar el mapa (también funciona con la ruedita del
-	  mouse).</p>
-
-	  <img src="assets/img/help-controls.jpg">
-
-	  <p>La "lupa" sirve para buscar una ciudad diferente a la que
-	  se está mostrando en el mapa, ingresando el nombre y la
-	  provincia de la misma. Por ejemplo, "capilla del monte,
-	  córdoba" y presionando <em>Enter</em>.</p>
-
-	  <img src="assets/img/help-geoposition.jpg">
-
-	  <p>Además hay un ícono con una "flechita" que sirve para
-	  centrar el mapa en la posición en la que te encuentras
-	  actualmente.</p>
-
-	  <img src="assets/img/help-my-position.jpg">
-
-	  <p>¡Espero que te sea de utilidad!</p>
-
-	</div>
-
-	<div class="sidebar-pane" id="faq">
-	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span></div>
-	  <h1>Preguntas frecuentes</h1>
-	  <p>
-	    <ul>
-	      <div class="item">
-		<li><strong>¿Cómo puedo agregar más <em>POIs</em> a la lista?</strong></li>
-		<p>Podés <a href="mailto:humitos@gmail.com">contactarte
-		conmigo por email</a> (o <a href="#comments"
-		onclick="javascript:sidebar.open('comments')">dejar un
-		comentario</a>) y comentarme qué tipo de punto de
-		interés querés agregar así lo sumo a la lista.</p>
-	      </div>
-	      <div class="item">
-		<li><strong>¿Para qué sirve el link <em>Compartir este mapa (link)</em> que está en la lista de POIs?</strong></li>
-		<p>Cuando necesites mostrarle el mismo mapa que vos
-		estás viendo a otra persona, podés pasarle ese link y
-		así compartir el mapa. Para eso, tenés que hacer click
-		con el botón derecho del mouse en el
-		texto <em>Compartir este mapa (link)</em> y luego
-		"Copiar dirección de enlace" para guardarlo en el
-		portapapeles.</p>
-	      </div>
-	      <div class="item">
-		<li><strong>Estoy seguro que un POI tiene más información de la que se muestra. ¿Porqué?</strong></li>
-		<p>Es probable que algunas
-		etiquetas <em>importantes</em> se me hayan pasado y
-		que estén faltando. Enviame un email o dejá un
-		comentario en el sitio mecionando el POI en cuestión y
-		lo resolveré a la brevedad.</p>
-	      </div>
-	    </ul>
-	  </p>
+	  <!--Home - ajuda -->
+	  <br><hr width="90%">
+	  <A NAME="help_home"></A>
+	  <h1><span class="fa fa-support"></span> Ajuda</h1>
+	  <p style="text-align:justify; margin-right:5px;">Des d'aquesta secció podeu seleccionar els punts 
+	  d'interès que voleu visualitzar al mapa. Cal que seleccioneu tots aquells punts que desitgeu, marcant 	  -ne la casella corresponent:</p>
+	  <center><img src="assets/img/help/pdis.png" width="80%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Quan els hàgiu seleccionat podeu tancar el panell
+           fent clic sobre la <b>«X»</b> que hi ha al capdamunt a l'esquerra, i en uns segons (en funció de la
+           connexió a Internet) us apareixeran els punts d'interès sobre el mapa:</p>
+	  <center><img src="assets/img/help/pdis2.png" width="90%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Ara podreu seleccionar la icona de qualsevol dels
+	   punts d'interès per veure'n més informació (de la base de dades d'OSM). Alguns camps com
+	   el correu electrònic o els lloc web són enllaços que es poden seguir, i si utilitzeu el mapa des
+	   d'un telèfon mòbil també podreu trucar directament al telèfon de contacte:</p>
+	  <center><img src="assets/img/help/popup.png" width="90%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Si us aparegués un missatge com aquest:</p>
+	  <center><img src="assets/img/help/zoom.png" width="100%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Significa que no s'ha arribat al nivell mínim
+	   d'apropament per visualitzar les icones, i per tant cal que us acosteu més al mapa (amb el botó
+            <b>«+»</b> del mapa, per exemple).</p>
+	  <p style="text-align:justify; margin-right:5px;">Si seguiu l'enllaç <b>«Informació al detall
+           (expert)»</b> que tenen tots els punts d'interès, s'obrirà automàticament el panell «Expert» amb la
+           informació de les etiquetes del punt d'interès a OpenStreetMap, i també enllaços per visualitzar
+            el punt d'interès a OSM o inclús per editar-lo:</p>
+	  <center><img src="assets/img/help/expert.png" width="90%"></center>
+	  <br>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-arrow-up"
+          onClick="location.href='#home_init'"> Inici</button></center>
 	</div>
 
 	<div class="sidebar-pane" id="about">
@@ -227,35 +172,6 @@
 
 	    </ul>
 	  </p>
-	</div>
-
-	<div class="sidebar-pane" id="software">
-	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span></div>
-	  <h1>Herramientas usadas</h1>
-	  <p>Este sitio está construido utilizando estas herramientas:</p>
-
-	  <ul class="item">
-	    <li><a href="http://leafletjs.com/">Leafletjs</a> © Vladimir Agafonkin</li>
-	    <li>Leaflet Plugins:
-	      <ol>
-		<li><a href="https://github.com/ebrelsford/Leaflet.loading">Leaflet.loading</a> © Eric Brelsford</li>
-		<li><a href="https://github.com/perliedman/leaflet-control-geocoder">Control.Geocoder</a> © Per Liedman</li>
-		<li><a href="https://github.com/Turbo87/sidebar-v2/">L.control.sidebar</a> © Tobias Bieniek</li>
-		<li><a href="https://www.mapbox.com/mapbox.js/plugins/#leaflet-locatecontrol">L.Control.Locate</a> © Mapbox</li>
-		<li><a href="https://github.com/makinacorpus/Leaflet.RestoreView">Leaflet.RestoreView</a> © Makina Corpus</li>
-		<li><a href="https://github.com/kartenkarsten/leaflet-layer-overpass">L.OverPassLayer</a> © kartenkarsten</li>
-		<li><a href="https://github.com/mlevans/leaflet-hash">L.Hash</a> © Michael Lawrence Evans</li>
-		<li><a href="https://github.com/Leaflet/Leaflet.label">Leaflet.label</a> © Leaflet</li>
-	      </ol>
-	    </li>
-	    <li><a href="http://fortawesome.github.io/Font-Awesome/">Font-Awesome</a> © Dave Gandy</li>
-	    <li><a href="http://mapicons.nicolasmollet.com/">Map Icons</a> © Nicolas Mollet</li>
-	    <li><a href="http://jquery.com">jQuery</a> © The jQuery Foundation</li>
-	    <li><a href="https://github.com/medialize/URI.js">URI.js</a> © Medialize</li>
-	    <li><a href="https://github.com/janl/mustache.js">Mustache</a> © Jan Lehnardt</li>
-	  </ul>
-
-	  <p>¡Gracias a todos ellos funciona este sitio web!</p>
 	</div>
 
 	<div class="sidebar-pane" id="developer">

@@ -116,10 +116,10 @@ geocoder.markGeocode = function(result) {
 
 // https://github.com/Turbo87/sidebar-v2/
 var sidebar = L.control.sidebar('sidebar').addTo(map);
-$(document).ready(function () {
+//$(document).ready(function () {
     // open #home sidebar-pane to show the available POIs
-    sidebar.open('home');
-});
+//    sidebar.open('home');
+//});
 
 // https://github.com/mlevans/leaflet-hash
 var hash = new L.Hash(map);
