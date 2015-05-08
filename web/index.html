@@ -3,11 +3,11 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta property="og:title" content="Puntos de Interés" />
+    <meta property="og:title" content="OpenStreetMap - la Palma de Cervelló" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://pois.elblogdehumitos.com.ar/" />
+    <meta property="og:url" content="http://www.konfraria.org/osm/cerca/web" />
     <meta property="og:image" content="http://pois.elblogdehumitos.com.ar/assets/img/preview.jpg" />
-    <meta property="og:description" content="Encuentra los puntos de interés cerca de dónde estés." />
+    <meta property="og:description" content="Mapa per la Palma de Cervelló amb cerca de punts d'interès i altra informació." />
     <link rel="shortcut icon" href="assets/img/favicon.ico"/>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <link rel="stylesheet" href="assets/css/Control.Loading.css" />
@@ -31,9 +31,9 @@
       <ul class="sidebar-tabs" role="tablist">
 	<li><a href="#home" role="tab"><i class="fa fa-map-marker"></i></a></li>
 	<li><a href="#search" role="tab"><i class="fa fa-search"></i></a></li>
-	<li><a href="#about" role="tab"><i class="fa fa-user"></i></a></li>
 	<li><a href="#links" role="tab"><i class="fa fa-link"></i></a></li>
 	<li><a href="#developer" role="tab"><i class="fa fa-code"></i></a></li>
+	<li><a href="#about" role="tab"><i class="fa fa-info-circle"></i></a></li>
       </ul>
 
       <!-- Tab panes -->
@@ -140,41 +140,6 @@
           onClick="location.href='#search_init'"> Inici</button></center>
 	</div>
 
-	<div class="sidebar-pane" id="about">
-	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span></div>
-	  <h1>Acerca de...</h1>
-	  <p>Este es un sitio web que empecé para facilitar el acceso
-	  a la información mientras viajo con mi
-	  proyecto <a href="http://elblogdehumitos.com.ar/pages/argentina-en-python/">Argentina
-	  en Python</a>, ya que cada vez que llego a una ciudad nueva
-	  necesito acceder a lugares como estaciones de servicio,
-	  hostels o campings, farmacias y demás lugares públicos.</p>
-
-	  <p>Por lo tanto, este sitio me ayuda a recopilar fácilmente
-	  la información disponible
-	  en <a href="http://osm.org">OSM</a> a través
-	  de <a href="http://wiki.openstreetmap.org/wiki/Overpass_API">OverpassAPI</a>
-	  y así tener una visión general de los POIs que existen en la
-	  ciudad a la que estoy llegando.</p>
-
-	  <p>El código del proyecto lo podés encontrar en
-	  Github: <a href="https://github.com/humitos/osm-pois">aquí</a>. Por
-	  favor, si encuentras algún error repórtalo en
-	  los <a href="https://github.com/humitos/osm-pois/issues">issues</a>
-	  o crea un pull request.</p>
-
-	  <p>Si no sabés que es Github y querés hacer un comentario o
-	  sugerencia sobre este sitio web, me podés enviar
-	  un <a href="mailto:humitos@gmail.com">email</a>
-	  o <a href="#comments"
-	  onclick="javascript:sidebar.open('comments')">dejar un
-	  comentario</a> en este sitio.</p>
-
-	  <p>¡Muchas gracias!</p>
-
-	  <p style="text-align: right">humitos<br>-- <a href="http://elblogdehumitos.com.ar">http://elblogdehumitos.com.ar</a></p>
-	</div>
-
 	<div class="sidebar-pane" id="links">
 	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span></div>
 	  <h1>Enlaces de interés</h1>
@@ -256,6 +221,50 @@
 	  <p class="tags"></p>
 	</div>
 
+	<!--QUANT A-->
+	<div class="sidebar-pane" id="about">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <h1>Quant a...</h1>
+	  <p style="text-align:justify; margin-right:5px;"><img align="right" src="http://www.konfraria.org/icones/konfraria.jpeg">Aquest és un mapa creat per l'associació sense ànim de lucre <a href="http://www.konfraria.org" target="_blank">la Konfraria de la Vila del Pingüí de la Palma</a>, que a més a més ha participat activament en el grup d'<a href="http://wiki.openstreetmap.org/wiki/WikiProject_Catalan" target="_blank">OSM en català</a> així com en la incorporació de dades al mapa de la Palma de Cervelló al projecte <a href="" target="_blank">OpenStreetMap</a>. Trobareu un resum de les activitats més rellevants a la <a href="http://wiki.openstreetmap.org/wiki/User:KonfrareAlbert" target="_blank">pàgina de l'usuari KonfrareAlbert</a>, i també informació sobre la importació del cadastre a la pàgina de <a href="http://wiki.openstreetmap.org/wiki/Palma_de_Cervell%C3%B3" target="_blank">la Palma de Cervelló al wiki d'OSM</a>. Trobareu més informació sobre la Konfraria, i el nostre contacte en <a href="http://www.lapalmadecervello.cat/entitats/cultura/la-konfraria-de-la-vila-del-pingui" target="_blank">aquest enllaç</a>.</p>
+
+	  <p style="text-align:justify; margin-right:5px;">Gran part del codi ha estat aprofitat de la pàgina creada per Manuel Kaufmann, el <b><i>Humitos</b></i> (<a href="http://pois.elblogdehumitos.com.ar/#14/41.4829/1.9178" target="_blank">lloc web</a>), i de la que en podeu trobar el <a href="https://github.com/humitos/osm-pois" target="_blank">codi a GitHub</a> sota una llicència <a href="https://www.gnu.org/licenses/gpl-2.0.html" target="_blank">GPL</a>.</p>
+
+	 <p>Eines que s'utilitzen per fer funcionar aquest lloc web:</p>
+
+	  <ul class="item">
+	    <li><a href="http://leafletjs.com/" target="_blank">Leafletjs</a> © Vladimir Agafonkin</li>
+	    <li>Connectors de Leaflet:
+	      <ol>
+		<li><a href="https://github.com/ebrelsford/Leaflet.loading" target="_blank">Leaflet.loading</a> © Eric Brelsford</li>
+		<li><a href="https://github.com/Turbo87/sidebar-v2/" target="_blank">L.control.sidebar</a> © Tobias Bieniek</li>
+		<li><a href="https://www.mapbox.com/mapbox.js/plugins/#leaflet-locatecontrol" target="_blank">L.Control.Locate</a> © Mapbox</li>
+		<li><a href="https://github.com/makinacorpus/Leaflet.RestoreView" target="_blank">Leaflet.RestoreView</a> © Makina Corpus</li>
+		<li><a href="https://github.com/kartenkarsten/leaflet-layer-overpass" target="_blank">L.OverPassLayer</a> © kartenkarsten</li>
+		<li><a href="https://github.com/mlevans/leaflet-hash" target="_blank">L.Hash</a> © Michael Lawrence Evans</li>
+		<li><a href="https://github.com/Leaflet/Leaflet.label" target="_blank">Leaflet.label</a> © Leaflet</li>
+		<li><a href="https://github.com/osmlab/leaflet-osm-notes" target="_blank">Leaflet-osm-notes</a> © Tom MacWright</li>
+		<li><a href="https://github.com/torfuspolymorphus/leaflet.zoomhome" target="_blank">Leaflet.zoomhome</a> © Torf</li>
+		<li><a href="https://github.com/rowanwins/leaflet-easyPrint" target="_blank">leaflet-easyPrint</a> © Rowan Winsemius</li>
+		<li><a href="https://github.com/mpetazzoni/leaflet-gpx" target="_blank">leaflet-gpx</a> © Maxime Petazzoni</li>
+		<li><a href="https://github.com/MrMufflon/Leaflet.Elevation" target="_blank">Leaflet.elevation</a> © Felix Bache</li>
+	      </ol>
+	    </li>
+	    <li><a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font-Awesome</a> © Dave Gandy</li>
+	    <li><a href="http://mapicons.nicolasmollet.com/" target="_blank">Map Icons</a> © Nicolas Mollet</li>
+	    <li><a href="http://jquery.com" target="_blank">jQuery</a> © The jQuery Foundation</li>
+	    <li><a href="https://github.com/medialize/URI.js" target="_blank">URI.js</a> © Medialize</li>
+	    <li><a href="https://github.com/janl/mustache.js" target="_blank">Mustache</a> © Jan Lehnardt</li>
+	    <li><a href="https://www.mapillary.com/" target="_blank">Mapillary</a> © Mapillary</li>
+	  </ul>
+
+	  <p style="text-align:justify; margin-right:5px;">Sense aquestes eines seria impossible que funcionés aquest lloc web, a tots ells, moltes gràcies.</p>
+	</div>
+
+	<div class="sidebar-pane" id="links">
+	<div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span></div>
+      
+       </div>
       </div>
     </div>
 
@@ -285,20 +294,5 @@
     <script src="assets/js/site.functions.js"></script>
     <script src="assets/js/site.js"></script>
 
-    <!-- Piwik -->
-    <script type="text/javascript">
-      var _paq = _paq || [];
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-	  var u="//elblogdehumitos.com.ar/piwik/";
-	  _paq.push(['setTrackerUrl', u+'piwik.php']);
-	  _paq.push(['setSiteId', 2]);
-	  var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-	  g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-      })();
-    </script>
-    <noscript><p><img src="//elblogdehumitos.com.ar/piwik/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
-    <!-- End Piwik Code -->
   </body>
 </html>
