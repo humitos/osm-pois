@@ -98,6 +98,7 @@ for (tile in tileLayerData) {
 
 tileLayers['Estándar (Mapnik)'].addTo(map);
 L.control.layers(tileLayers).addTo(map);
+var notesLayer = new leafletOsmNotes();
 
 
 // https://github.com/Turbo87/sidebar-v2/
@@ -288,6 +289,17 @@ function clear_layer3()
 		$('<p>', { html: " " }).appendTo('#results2');
 	if (feature3) {
 		map.removeLayer(feature3);
+	}
+}
+
+function addnotes() {
+notesLayer.addTo(map);
+}
+
+function clearnotes()
+{
+	for (id in notesLayer._layers){
+		notesLayer.removeLayer(id);
 	}
 }
 

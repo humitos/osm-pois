@@ -195,30 +195,37 @@
 	  </p>
 	</div>
 
+	<!-- EXPERT -->
 	<div class="sidebar-pane" id="developer">
-	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span></div>
-	  <h1>Modo experto</h1>
-	  <p>Este panel muestra la infomación necesaria para los
-	  desarrolladores del sitio o aquellos que quieran colaborar
-	  con el proyecto: agregando funcionalidad o reportando
-	  errores.</p>
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <h1>Mode expert</h1>
+	  <p style="text-align:justify; margin-right:5px;">Aquest panell mostra la informació de què disposa
+	   OpenStreetMap sobre cada element, i facilita enllaços per poder col·laborar amb el projecte.</p>
 
-	  <p>Para ver la información en este panel debes hacer click
-	  en alguno de los POIs que aparecen en el mapa luego de
-	  seleccionar algunos de la lista.</p>
+	  <p style="text-align:justify; margin-right:5px;">Per visualitzar les etiquetes d'un element cal fer
+	   clic en algun dels punts d'interès del mapa, després de seleccionar-los des de l'apartat «Punts
+	   d'interès».</p>
 
-	  <p>También puedes crear tu propia consulta utilizando
-	  OverpassAPI para buscar, por ejemplo, un POI que <em>no
-	  esté</em> en al lista marcando el siguiente checkbox.</p>
+	  <p style="text-align:justify; margin-right:5px;">També podeu crear la vostra pròpia consulta amb
+	  OverpassAPI per cercar un punt d'interès que <em>no
+	  sigui</em> a la llista. Per fer-ho cal marcar la casella:</p>
 
 	  <div>
-	    <label><input id="expert-mode" type="checkbox"/><span>Custom OverpassAPI Query</span></label>
+	    <label><input id="expert-mode" type="checkbox"/><span>Consulta personalitzada amb OverpassAPI</span></label>
 	    <form id="expert-form" style="display: none;">
 	      <input id="expert-query" style="width: 100%;" name="query" type="text" placeholder="[internet_access=wlan][amenity=fuel]"/>
 	    </form>
 	  </div>
-
 	  <p class="tags"></p>
+	<h2>Notes d'OpenStreetMap</h2>
+	<p style="text-align:justify; margin-right:5px;">Des d'aquí podreu visualitzar les 
+	<a href="http://wiki.openstreetmap.org/wiki/Ca:Notes" target="_blank">notes d'OSM</a> al mapa, i
+	 accedir directament a la pàgina d'OSM de la nota. Les notes són anotacions ràpides per notificar
+	 d'errors a la zona. Podeu afegir-ne des de la 
+	<a href="http://www.openstreetmap.org/#map=9/41.5446/2.0132&layers=N" target="_blank">pàgina d'OSM</a>.
+	<p><button type="button" onclick="addnotes();">Mostra notes d'OSM al mapa</button></p>
+	<p><button type="button" onclick="clearnotes();">Oculta notes d'OSM al mapa</button></p>
 	</div>
 
 	<!--QUANT A-->
@@ -276,7 +283,8 @@
 
     <!-- Javascripts -->
     <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
-
+    
+    <script src="assets/js/leaflet-osm-notes.js"></script>
     <script src="assets/js/leaflet.label.js"></script>
     <script src="assets/js/leaflet.restoreview.js"></script>
     <script src="assets/js/leaflet-sidebar.js"></script>

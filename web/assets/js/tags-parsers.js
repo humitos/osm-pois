@@ -3,7 +3,7 @@ var tagTmpl = '<span class="fa fa-{{iconName}}"></span> <strong>{{tag}}:</strong
 
 function develop_parser(element) {
     var tags = element.tags;
-    var markerPopup = '<h2>Etiquetas</h2>';
+    var markerPopup = '<h2>Etiquetes</h2>';
     var tagTmpl = '<tr><td><strong>{{tag}}</strong></td><td>{{value}}</td></tr>';
     markerPopup += '<table>';
 
@@ -14,7 +14,7 @@ function develop_parser(element) {
     }
     markerPopup += '<table>';
 
-    markerPopup += '<h2>Acciones</h2>';
+    markerPopup += '<h2>Accions</h2>';
 
     // View in OpenStreetMap
     var link = Mustache.render(
@@ -22,7 +22,7 @@ function develop_parser(element) {
 	{id: element.id}
     );
     markerPopup += Mustache.render(
-	'<a href="{{link}}" target="_blank">Ver en OpenStreetMap</a> <br />',
+	'<a href="{{link}}" target="_blank">Visualitza a OpenStreetMap</a> <br />',
 	{link: link}
     );
 
@@ -32,7 +32,7 @@ function develop_parser(element) {
 	{id: element.id}
     );
     markerPopup += Mustache.render(
-	'<a href="{{link}}" target="_blank">Editar en OpenStreetMap</a> <br />',
+	'<a href="{{link}}" target="_blank">Edita a OpenStreetMap</a> <br />',
 	{link: link}
     );
 
@@ -254,6 +254,8 @@ function parse_tags(element, titlePopup, functions) {
 	    markerPopup += data.callback(element);
 	}
     }
+
+	markerPopup += '<br><a href="#" onclick="javascript: sidebar.open(\'developer\'); return false;">Informació al detall (expert)</a>';
 
     return markerPopup;
 }
