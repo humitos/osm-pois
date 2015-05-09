@@ -242,6 +242,7 @@ function parse_tags(element, titlePopup, functions) {
 	{callback: internet_access_parser},
 	{callback: email_parser},
 	{callback: website_parser},
+	{callback: generic_tag_parser, tag: 'description', label: 'Descripció'},
     ].concat(functions)
 
     for (var i = 0; i < functions.length; i++) {
