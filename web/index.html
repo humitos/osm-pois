@@ -32,6 +32,7 @@
       <ul class="sidebar-tabs" role="tablist">
 	<li><a href="#home" role="tab"><i class="fa fa-map-marker"></i></a></li>
 	<li><a href="#search" role="tab"><i class="fa fa-search"></i></a></li>
+	<li><a href="#mapillary" role="tab"><i class="fa fa-road"></i></a></li>
 	<li><a href="#links" role="tab"><i class="fa fa-link"></i></a></li>
 	<li><a href="#developer" role="tab"><i class="fa fa-code"></i></a></li>
 	<li><a href="#about" role="tab"><i class="fa fa-info-circle"></i></a></li>
@@ -139,6 +140,47 @@
 	  <br>
 	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-arrow-up"
           onClick="location.href='#search_init'"> Inici</button></center>
+	</div>
+
+	<!--MAPILLARY-->
+	<A NAME="mapillary_init"></A>
+	<div class="sidebar-pane" id="mapillary">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-support"
+          onClick="location.href='#help_mapillary'"> Ajuda (Mapillary)</button></center>
+	  <h1>Mapillary</h1>
+	  <center><img src="assets/img/mapillary.png" width="50" height="50">
+	  <p><b>Mapillary</b> és l'Street View lliure, està realitzat per voluntaris i les imatges es
+           distribueixen sota una llicència <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.ca"
+           target="_blank">CC BY-SA 4.0</a>.</p>
+	  <p><button type="button" onclick="refreshMapillary();">Troba 10 llocs a l'atzar a Mapillary</button>
+          </p>
+	  <p>Per trobar nous llocs a Mapillary, canvieu la vista del mapa i torneu a fer clic al botó.</p>
+	  <p><button type="button" onclick="clear_layer();">Neteja els marcadors de Mapillary</button></p>
+	  </center>
+
+	  <br><hr width="90%">
+
+	  <!--Mapillary - ajuda -->
+	  <A NAME="help_mapillary"></A>
+	  <h1><span class="fa fa-support"></span> Ajuda</h1>
+	  <p style="text-align:justify; margin-right:5px;">Des d'aquesta secció podeu trobar deu punts a
+	   l'atzar de la vostra vista del mapa, en els que es disposa de fotografia a Mapillary. Si us
+	   interessa localitzar fotografies en una zona concreta és recomanable apropar-vos el màxim a
+	   aquella zona abans de fer clic a «Troba 10 llocs a l'atzar a Mapillary». Després de fer-ho us
+	   apareixeran 10 marcadors blaus al mapa:</p>
+	  <center><img src="assets/img/help/mapillary1.png" width="70%"></center>
+	  <p style="text-align:justify; margin-right:5px;">En seleccionar un dels marcadors us apareixerà una
+	   bafarada amb la fotografia a Mapillary de la zona:</p>
+	  <center><img src="assets/img/help/mapillary2.png" width="70%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Si seguiu l'enllaç <b>«Continua la seqüència a
+	   Mapillary»</b> s'obrirà la pàgina de Mapillary en una altra pestanya, en el punt exacte on éreu. I
+	   des d'allà podreu resseguir tota la ruta:</p>
+	  <center><img src="assets/img/help/mapillary_web.png" width="90%"></center>
+	  <br>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-arrow-up"
+          onClick="location.href='#mapillary_init'"> Inici</button></center>
 	</div>
 
 	<div class="sidebar-pane" id="links">
