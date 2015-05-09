@@ -50,7 +50,7 @@ function address_parser(element) {
 	}
 	markerPopup += Mustache.render(
 	    tagTmpl,
-	    {tag: 'Dirección', value: value, iconName: 'map-marker'}
+	    {tag: 'Adreça', value: value, iconName: 'map-marker'}
 	);
     }
     return markerPopup;
@@ -70,7 +70,7 @@ function website_parser(element) {
 	);
 	markerPopup += Mustache.render(
 	    tagTmpl,
-	    {tag: 'Sitio Web', value: link, iconName: 'globe'}
+	    {tag: 'Lloc web', value: link, iconName: 'globe'}
 	);
     }
     return markerPopup;
@@ -89,7 +89,7 @@ function email_parser(element) {
 	);
 	markerPopup += Mustache.render(
 	    tagTmpl,
-	    {tag: 'Email', value: link, iconName: 'at'}
+	    {tag: 'Correu', value: link, iconName: 'at'}
 	);
     }
     return markerPopup;
@@ -149,9 +149,9 @@ function generic_yes_no_tag_parser(element, tag, tagName, iconName) {
 function bank_parser(element) {
     return parse_tags(
 	element,
-	'Banco',
+	'Banc',
 	[
-	    {callback: generic_yes_no_tag_parser, tag: 'atm', label: 'Cajero Automático'},
+	    {callback: generic_yes_no_tag_parser, tag: 'atm', label: 'Caixer automàtic'},
 	    {callback: generic_tag_parser, tag: 'network', label: 'Red'},
 	]
     );
@@ -168,7 +168,7 @@ function generic_poi_parser(element, titlePopup) {
 function fuel_parser(element) {
     return parse_tags(
 	element,
-	'Estación de Servicio',
+	'Estació de servei',
 	[
 	    {callback: generic_tag_parser, tag: 'brand', label: 'Marca'},
 	    {callback: generic_yes_no_tag_parser, tag: 'fuel:diesel', label: 'Diesel'},
@@ -182,7 +182,7 @@ function hotel_parser(element) {
 	element,
 	'Hotel',
 	[
-	    {callback: generic_tag_parser, tag: 'stars', label: 'Estrellas', iconName: 'star'},
+	    {callback: generic_tag_parser, tag: 'stars', label: 'Estrelles', iconName: 'star'},
 	]
     );
 }
@@ -192,7 +192,7 @@ function hospital_parser(element) {
 	element,
 	'Hospital',
 	[
-	    {callback: generic_yes_no_tag_parser, tag: 'emergency', label: 'Emergencias', iconName: 'plus'},
+	    {callback: generic_yes_no_tag_parser, tag: 'emergency', label: 'Emergèncias', iconName: 'plus'},
 	]
     );
 }
@@ -235,7 +235,7 @@ function parse_tags(element, titlePopup, functions) {
     );
 
     functions = [
-	{callback: generic_tag_parser, tag: 'name', label: 'Nombre'},
+	{callback: generic_tag_parser, tag: 'name', label: 'Nom'},
 	{callback: address_parser},
 	{callback: phone_parser},
 	{callback: generic_tag_parser, tag: 'contact:fax', label: 'Fax', iconName: 'fax'},

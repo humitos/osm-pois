@@ -76,7 +76,7 @@ L.Control.MinZoomIdenticator = L.Control.extend({
     if (minzoomlevel == -1) {
       this._container.innerHTML = "no layer assigned";
     }else{
-      this._container.innerHTML = "Los POIs aparecerán al zoom: " + minzoomlevel + " (actual: " + this._map.getZoom() + ")";
+      this._container.innerHTML = "Els punts d'interès apareixeran al zoom: " + minzoomlevel + " (actual: " + this._map.getZoom() + ")";
     }
 
     if (this._map.getZoom() >= minzoomlevel) {
