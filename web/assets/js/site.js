@@ -5,7 +5,7 @@ var spinner = 0;
 Mustache.escape = function (text) { return text; }
 
 // https://github.com/Leaflet/Leaflet
-var map = new L.Map('map');
+var map = new L.Map('map', {zoomControl: false});
 var iconLayer = new L.LayerGroup();
 map.addLayer(iconLayer);
 
@@ -98,6 +98,10 @@ for (tile in tileLayerData) {
 
 tileLayers['Estándar (Mapnik)'].addTo(map);
 L.control.layers(tileLayers).addTo(map);
+// +++++ Set the coordinates for zoomhouse +++++
+map.setView([41.41297 , 1.96756], 17);
+var zoomHome = L.Control.zoomHome();
+zoomHome.addTo(map);
 var notesLayer = new leafletOsmNotes();
 
 
@@ -197,7 +201,7 @@ function chooseAddr(lat1, lng1, lat2, lng2, osm_type) {
 function addr_search() {
     var inp = document.getElementById("addr");
 
-    // &viewbox=1.9341,41.4200,1.9886,41.3993&bounded=1 --> Coordinates (lat,long) for search box
+// +++++ &viewbox=1.9341,41.4200,1.9886,41.3993&bounded=1 --> Coordinates (lat,long) for search box +++++
     $.getJSON('http://nominatim.openstreetmap.org/search?format=json&viewbox=1.9341,41.4200,1.9886,41.3993&bounded=1&limit=5&q=' + inp.value, function(data) {
         var items = [];
 
