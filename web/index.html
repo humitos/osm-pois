@@ -33,6 +33,7 @@
 	<li><a href="#home" role="tab"><i class="fa fa-map-marker"></i></a></li>
 	<li><a href="#search" role="tab"><i class="fa fa-search"></i></a></li>
 	<li><a href="#mapillary" role="tab"><i class="fa fa-road"></i></a></li>
+	<li><a href="#wikipedia" role="tab"><i class="fa fa-book"></i></a></li>
 	<li><a href="#links" role="tab"><i class="fa fa-link"></i></a></li>
 	<li><a href="#developer" role="tab"><i class="fa fa-code"></i></a></li>
 	<li><a href="#about" role="tab"><i class="fa fa-info-circle"></i></a></li>
@@ -183,6 +184,24 @@
           onClick="location.href='#mapillary_init'"> Inici</button></center>
 	</div>
 	
+	<!--VIQUIPÈDIA-->
+	<div class="sidebar-pane" id="wikipedia">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <A NAME="IniciWiki"></A>
+	  <h1>La Palma de Cervelló a la Viquipèdia</h1>
+	  <center><p><button onclick="refreshIframe();">Torna a les categories</button></p></center>
+	  <p><iframe name="WikiPalma" width="100%" height="25000px" frameborder="0" scrolling="no"
+	   marginheight="0" marginwidth="0" src="http://ca.m.wikipedia.org/w/index.php?title=Categoria:La_Palma_de_Cervell%C3%B3&mobileaction=toggle_view_mobile"></iframe>
+	  <center><a href="#IniciWiki">Torna a l'inici</a></p></center></p>
+	  <script>
+		function refreshIframe() {
+   	 	var ifr = document.getElementsByName('WikiPalma')[0];
+   	 	ifr.src = ifr.src;
+		}
+	  </script>
+	  </div>
+
 	<!-- ENLLAÇOS D'INTERÈS -->
 	<div class="sidebar-pane" id="links">
 	<div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span></div>
