@@ -21,8 +21,21 @@ function get_poi(element) {
 	if (e.tags.car_repair == 'wheel_repair') type = 'wheel_repair';
 	if (type == '') type = e.tags.shop;
     }
+    if (e.tags.sport) {
+	if (e.tags.shooting == 'paintball') type = 'paintball';
+	if (type == '') type = e.tags.shooting;
+    }
     if (e.tags.leisure) {
 	if (type == '') type = e.tags.leisure;
+    }
+    if (e.tags.office) {
+	if (type == '') type = e.tags.office;
+    }
+    if (e.tags.craft) {
+	if (type == '') type = e.tags.craft;
+    }
+    if (e.tags.historic) {
+	if (type == '') type = e.tags.historic;
     }
 
     var poi = pois[type];
