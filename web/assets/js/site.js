@@ -104,6 +104,16 @@ var zoomHome = L.Control.zoomHome();
 zoomHome.addTo(map);
 var notesLayer = new leafletOsmNotes();
 
+// Mapillary popoups
+var onEachFeature = function(feature, layer) {
+    console.log(arguments);
+    var content = '<div><center><img width="100%" src="'+feature.properties.image+'"></img><br><a style="font-size:1.1em;" href="http://www.mapillary.com/map/im/'+feature.properties.key+'" target="_blank">Continua la seqüència a Mapillary</a><br><img style="vertical-align:middle;" src="assets/img/mapillary.png" width="25" height="25"></center></div>'
+    layer.bindPopup(content);
+};
+mapillaryLayer = L.geoJson(null, {
+                        onEachFeature: onEachFeature
+                    })
+mapillaryLayer.addTo(map);
 
 // https://github.com/Turbo87/sidebar-v2/
 var sidebar = L.control.sidebar('sidebar').addTo(map);
@@ -296,6 +306,40 @@ function clear_layer3()
 	}
 }
 
+// Mapillary functions
+function clear_layer()
+{
+	for (id in mapillaryLayer._layers){
+		mapillaryLayer.removeLayer(id);
+	}
+}
+
+function refreshMapillary() {
+ $.ajax({
+ 
+    dataType: "json",
+    url: "http://api.mapillary.com/v1/im/search?",
+             url: "http://api.mapillary.com/v1/im/search?",
+            data: {
+                'max-results': 10,
+                'geojson': true,
+                'min-lat': map.getBounds().getSouth(),
+                'max-lat': map.getBounds().getNorth(),
+                'min-lon': map.getBounds().getWest(),
+                'max-lon': map.getBounds().getEast()
+            },
+            success: function(data) {
+                    clear_layer();
+                $(data.features).each(function(key, data) {
+                    console.log('data',data);
+                    mapillaryLayer.addData(data);
+		    sidebar.close()
+                });
+            }
+    });
+}
+
+// OSM notes
 function addnotes() {
 notesLayer.addTo(map);
 }
