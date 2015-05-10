@@ -170,7 +170,8 @@ map.addControl(loadingControl);
 
 // https://github.com/makinacorpus/Leaflet.RestoreView
 if (!map.restoreView()) {
-    map.setView([-27.4927, -58.8063], 12);
+// +++++ Coordinates (lat,lon) for local place +++++
+    map.setView([41.41297 , 1.96756], 17);
 }
 
 var query = '';
