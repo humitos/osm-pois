@@ -363,4 +363,52 @@ function clearnotes()
 	}
 }
 
+var url = 'assets/gpx/track001.gpx'; // URL to your GPX file
+
+function addgpx() {
+el = L.control.elevation();
+	el.addTo(map);
+g = new L.GPX(url, {
+	async: true,
+	marker_options: {
+	startIconUrl: 'assets/img/pin-icon-start.png',
+	endIconUrl: 'assets/img/pin-icon-end.png',
+	shadowUrl: 'assets/img/pin-shadow.png'
+	}
+	});
+	g.on('loaded', function(e) {
+		map.fitBounds(e.target.getBounds());
+	info.textContent = 'Informació de la ruta:';
+	nom.textContent = g.get_name();
+	desc.textContent = g.get_desc();
+	lev.textContent = 'Dificultat: ' + g.get_level();
+	distance.textContent = 'Distància: ' + (g.get_distance() / 1000).toFixed(2) + ' Km';
+	alt.textContent = 'Guany d\'alçada acumulat: ' + g.get_elevation_gain().toFixed(0) + ' metres';
+	baix.textContent = 'Pèrdua d\'alçada acumulada: ' + g.get_elevation_loss().toFixed(0) + ' metres';
+	desni.textContent = 'Diferencial, desnivell: ' + (g.get_elevation_gain() - g.get_elevation_loss()).toFixed(0) + ' metres';
+	});
+	g.on("addline",function(e){
+		el.addData(e.line);
+	});
+	g.addTo(map);
+	tileLayers['A l\'aire lliure'].addTo(map);
+	sidebar.close()
+}
+
+
+function cleargpx() {
+	map.removeLayer(g);
+	el.clear();
+	el.removeFrom(map);
+	info.textContent = '';
+	nom.textContent = '';
+	desc.textContent = '';
+	lev.textContent = '';
+	distance.textContent = '';
+	alt.textContent = '';
+	baix.textContent = '';
+	desni.textContent = '';
+	document.getElementById("link").innerHTML="";
+}
+
 expert_mode_init();
