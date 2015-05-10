@@ -44,7 +44,7 @@ var tileLayerData = {
     landscape: {
 	name: 'Paisatge',
 	url: 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',
-	attribution: 'Teselas <a href="http://thunderforest.com/landscape/" target="_blank">ThunderForest</a>',
+	attribution: 'Tessel·les <a href="http://thunderforest.com/landscape/" target="_blank">ThunderForest</a>',
 	zoom: '18'
     },
     outdoor: {
@@ -62,7 +62,7 @@ var tileLayerData = {
     mapbox: {
 	name: 'MapBox (satèl·lit)',
 	url: 'http://{s}.tiles.mapbox.com/v3/51114u9.kogin3jb/{z}/{x}/{y}.png',
-	attribution: 'Teselas <a href="http://mapbox.com/" target="_blank">MapBox</a>',
+	attribution: 'Tessel·les <a href="http://mapbox.com/" target="_blank">MapBox</a>',
 	zoom: '19'
     },
     mapquest: {
@@ -150,12 +150,12 @@ L.control.locate({
     keepCurrentZoomLevel: true,
     showPopup: false,
     strings: {
-	title: 'Muéstrame donde estoy',
-	popup: 'Estás a {distance} metros aprox. de aquí',
+	title: 'Mostra la meva ubicació',
+	popup: 'Esteu a {distance} metres d\'aquí aproximadament',
 	outsideMapBoundsMsg: 'No es posible ubicar tu posición en el mapa'
     },
     onLocationError: function(err) {
-	alert('Disculpa. Hubo un error al intentar localizar tu ubicación.');
+	alert('S\'ha produït un error en intentar loacalitzar la vostra ubicació.');
     }
 }).addTo(map);
 

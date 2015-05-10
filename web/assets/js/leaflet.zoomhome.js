@@ -13,11 +13,12 @@
         options: {
             position: 'topleft',
             zoomInText: '+',
-            zoomInTitle: 'Zoom in',
+            zoomInTitle: 'Apropa',
             zoomOutText: '-',
-            zoomOutTitle: 'Zoom out',
+            zoomOutTitle: 'Allunya',
             zoomHomeIcon: 'home',
-            zoomHomeTitle: 'Home',
+            // +++++ Set the site that are your home +++++
+            zoomHomeTitle: 'Torna a la Palma de Cervelló',
             homeCoordinates: null,
             homeZoom: null
         },
