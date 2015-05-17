@@ -28,7 +28,7 @@ L.Control.Elevation = L.Control.extend({
         xTicks: undefined,
         yTicks: undefined,
         collapsed: false,
-        yAxisMin: undefined,
+        yAxisMin: 0,
         yAxisMax: undefined,
         forceAxisBounds: false
     },
