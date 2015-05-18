@@ -197,8 +197,44 @@ function hospital_parser(element) {
     );
 }
 
-function opening_hours_parser(element) {
-    // TODO: https://github.com/ypid/opening_hours.js
+function opening_tag_parser(element) {
+    var tags = element.tags;
+    var markerPopup = '';
+
+    if (tags['opening_hours']) {
+	markerPopup += Mustache.render(
+	    tagTmpl,
+	    {tag: 'Horari', value: tags['opening_hours'], iconName: 'clock-o'}
+	);
+    }
+    return markerPopup;
+}
+
+// https://github.com/ypid/opening_hours.js
+function parse_osm_times(element) {
+    try
+    {
+	var hours = element.tags["opening_hours"];
+        var oh = new opening_hours(hours);
+        var state = oh.getStateString();
+	var nextchange = oh.getNextChange();
+        // console.log(state)
+	if (state == "open") {
+	return "<span style='color:green' class='fa fa-circle'></span> <b>Estat:</b> Obert.<br><span style='color:red' class='fa fa-arrow-circle-down'></span> <b>Tancarà:</b> " + nextchange + "<br>";
+	}
+	else if (state == "close") {
+	return "<span style='color:red' class='fa fa-circle'></span> <b>Estat:</b> Tancat.<br><span style='color:green' class='fa fa-arrow-circle-up'></span> <b>Obrirà:</b> " + nextchange + "<br>";
+	}
+	else if (state == "undefined") {
+	return "<span style='color:gray' class='fa fa-circle'></span> <b>Estat:</b> Indefinit.<br><span style='color:gray' class='fa fa-arrow-circle-right'></span> <b>Canviarà l'estat:</b> " + nextchange + "<br>";
+	}
+	
+	}
+    catch(err)
+    {
+        //console.log("ERROR: cannot parse hours: " + hours);
+        return "<span style='color:gray' class='fa fa-circle'></span> <b>Estat:</b> Desconegut<br>";
+    }
 }
 
 function internet_access_parser(element) {
@@ -242,6 +278,8 @@ function parse_tags(element, titlePopup, functions) {
 	{callback: internet_access_parser},
 	{callback: email_parser},
 	{callback: website_parser},
+	{callback: opening_tag_parser},
+	{callback: parse_osm_times},
 	{callback: generic_tag_parser, tag: 'description', label: 'Descripció'},
     ].concat(functions)
 
