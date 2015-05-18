@@ -57,6 +57,12 @@ var pois = {
 	iconName: 'atm-2'
     },
 
+    post_office: {
+	name: 'Oficina de correus',
+	query: '[amenity=post_office]',
+	iconName: 'postal'
+    },
+
     fuel: {
 	name: 'Estació de servei',
 	query: '[amenity=fuel]',
@@ -268,6 +274,24 @@ var pois = {
 	name: 'Pintors',
 	query: '[craft=painter]',
 	iconName: 'paint'
+    },
+
+    furniture: {
+	name: 'Mobles',
+	query: '[shop=furniture]',
+	iconName: 'homecenter'
+    },
+
+    carpenter: {
+	name: 'Fusteria',
+	query: '[craft=carpenter]',
+	iconName: 'homecenter'
+    },
+
+    garden_furniture: {
+	name: 'Productes de jardineria',
+	query: '[shop=garden_furniture]',
+	iconName: 'lawncareicon'
     },
 
     swimming_pool: {
