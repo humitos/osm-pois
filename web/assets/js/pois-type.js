@@ -300,6 +300,12 @@ var pois = {
 	iconName: 'swimming2'
     },
 
+    estate_agent: {
+	name: 'Immobiliària',
+	query: '[office=estate_agent]',
+	iconName: 'estateagent'
+    },
+
 //    gallery: {
 //	name: 'Galeria d\'art',
 //	query: '[tourism=gallery]',
