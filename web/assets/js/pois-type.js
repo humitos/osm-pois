@@ -276,6 +276,13 @@ var pois = {
 	iconName: 'paint'
     },
 
+    paint: {
+	name: 'Pintures',
+	query: '[shop=paint]',
+	iconName: 'paint'
+    },
+
+
     furniture: {
 	name: 'Mobles',
 	query: '[shop=furniture]',
