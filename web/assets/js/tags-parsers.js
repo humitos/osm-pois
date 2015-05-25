@@ -3,7 +3,7 @@ var tagTmpl = '<span class="fa fa-{{iconName}}"></span> <strong>{{tag}}:</strong
 
 function develop_parser(element) {
     var tags = element.tags;
-    var markerPopup = '<h2>Etiquetas</h2>';
+    var markerPopup = '<h2>Etiquetes</h2>';
     var tagTmpl = '<tr><td><strong>{{tag}}</strong></td><td>{{value}}</td></tr>';
     markerPopup += '<table>';
 
@@ -14,7 +14,7 @@ function develop_parser(element) {
     }
     markerPopup += '<table>';
 
-    markerPopup += '<h2>Acciones</h2>';
+    markerPopup += '<h2>Accions</h2>';
 
     // View in OpenStreetMap
     var link = Mustache.render(
@@ -22,7 +22,7 @@ function develop_parser(element) {
 	{id: element.id}
     );
     markerPopup += Mustache.render(
-	'<a href="{{link}}" target="_blank">Ver en OpenStreetMap</a> <br />',
+	'<a href="{{link}}" target="_blank">Visualitza a OpenStreetMap</a> <br />',
 	{link: link}
     );
 
@@ -32,7 +32,7 @@ function develop_parser(element) {
 	{id: element.id}
     );
     markerPopup += Mustache.render(
-	'<a href="{{link}}" target="_blank">Editar en OpenStreetMap</a> <br />',
+	'<a href="{{link}}" target="_blank">Edita a OpenStreetMap</a> <br />',
 	{link: link}
     );
 
@@ -50,7 +50,7 @@ function address_parser(element) {
 	}
 	markerPopup += Mustache.render(
 	    tagTmpl,
-	    {tag: 'Dirección', value: value, iconName: 'map-marker'}
+	    {tag: 'Adreça', value: value, iconName: 'map-marker'}
 	);
     }
     return markerPopup;
@@ -70,7 +70,7 @@ function website_parser(element) {
 	);
 	markerPopup += Mustache.render(
 	    tagTmpl,
-	    {tag: 'Sitio Web', value: link, iconName: 'globe'}
+	    {tag: 'Lloc web', value: link, iconName: 'globe'}
 	);
     }
     return markerPopup;
@@ -89,7 +89,26 @@ function email_parser(element) {
 	);
 	markerPopup += Mustache.render(
 	    tagTmpl,
-	    {tag: 'Email', value: link, iconName: 'at'}
+	    {tag: 'Correu', value: link, iconName: 'at'}
+	);
+    }
+    return markerPopup;
+}
+
+function phone_parser(element) {
+    var tags = element.tags;
+    var tag = tags.phone ? tags.phone : tags['contact:phone'];
+    var markerPopup = '';
+
+    if (tag) {
+	if (tag.indexOf('+') == -1) return markerPopup
+	var link = Mustache.render(
+	    '<a href="tel:{{phone}}" target="_blank">{{phone}}</a>',
+	    {phone: tag}
+	);
+	markerPopup += Mustache.render(
+	    tagTmpl,
+	    {tag: 'Telèfon', value: link, iconName: 'phone'}
 	);
     }
     return markerPopup;
@@ -130,9 +149,9 @@ function generic_yes_no_tag_parser(element, tag, tagName, iconName) {
 function bank_parser(element) {
     return parse_tags(
 	element,
-	'Banco',
+	'Banc',
 	[
-	    {callback: generic_yes_no_tag_parser, tag: 'atm', label: 'Cajero Automático'},
+	    {callback: generic_yes_no_tag_parser, tag: 'atm', label: 'Caixer automàtic'},
 	    {callback: generic_tag_parser, tag: 'network', label: 'Red'},
 	]
     );
@@ -149,7 +168,7 @@ function generic_poi_parser(element, titlePopup) {
 function fuel_parser(element) {
     return parse_tags(
 	element,
-	'Estación de Servicio',
+	'Estació de servei',
 	[
 	    {callback: generic_tag_parser, tag: 'brand', label: 'Marca'},
 	    {callback: generic_yes_no_tag_parser, tag: 'fuel:diesel', label: 'Diesel'},
@@ -163,7 +182,7 @@ function hotel_parser(element) {
 	element,
 	'Hotel',
 	[
-	    {callback: generic_tag_parser, tag: 'stars', label: 'Estrellas', iconName: 'star'},
+	    {callback: generic_tag_parser, tag: 'stars', label: 'Estrelles', iconName: 'star'},
 	]
     );
 }
@@ -173,13 +192,49 @@ function hospital_parser(element) {
 	element,
 	'Hospital',
 	[
-	    {callback: generic_yes_no_tag_parser, tag: 'emergency', label: 'Emergencias', iconName: 'plus'},
+	    {callback: generic_yes_no_tag_parser, tag: 'emergency', label: 'Emergèncias', iconName: 'plus'},
 	]
     );
 }
 
-function opening_hours_parser(element) {
-    // TODO: https://github.com/ypid/opening_hours.js
+function opening_tag_parser(element) {
+    var tags = element.tags;
+    var markerPopup = '';
+
+    if (tags['opening_hours']) {
+	markerPopup += Mustache.render(
+	    tagTmpl,
+	    {tag: 'Horari', value: tags['opening_hours'], iconName: 'clock-o'}
+	);
+    }
+    return markerPopup;
+}
+
+// https://github.com/ypid/opening_hours.js
+function parse_osm_times(element) {
+    try
+    {
+	var hours = element.tags["opening_hours"];
+        var oh = new opening_hours(hours);
+        var state = oh.getStateString();
+	var nextchange = oh.getNextChange();
+        // console.log(state)
+	if (state == "open") {
+	return "<span style='color:green' class='fa fa-circle'></span> <b>Estat:</b> Obert.<br><span style='color:red' class='fa fa-arrow-circle-down'></span> <b>Tancarà:</b> " + nextchange + "<br>";
+	}
+	else if (state == "close") {
+	return "<span style='color:red' class='fa fa-circle'></span> <b>Estat:</b> Tancat.<br><span style='color:green' class='fa fa-arrow-circle-up'></span> <b>Obrirà:</b> " + nextchange + "<br>";
+	}
+	else if (state == "undefined") {
+	return "<span style='color:gray' class='fa fa-circle'></span> <b>Estat:</b> Indefinit.<br><span style='color:gray' class='fa fa-arrow-circle-right'></span> <b>Canviarà l'estat:</b> " + nextchange + "<br>";
+	}
+	
+	}
+    catch(err)
+    {
+        //console.log("ERROR: cannot parse hours: " + hours);
+        return "<span style='color:gray' class='fa fa-circle'></span> <b>Estat:</b> Desconegut<br>";
+    }
 }
 
 function internet_access_parser(element) {
@@ -216,14 +271,16 @@ function parse_tags(element, titlePopup, functions) {
     );
 
     functions = [
-	{callback: generic_tag_parser, tag: 'name', label: 'Nombre'},
+	{callback: generic_tag_parser, tag: 'name', label: 'Nom'},
 	{callback: address_parser},
-	{callback: generic_tag_parser, tag: 'phone', label: 'Teléfono', iconName: 'phone'},
-	{callback: generic_tag_parser, tag: 'contact:phone', label: 'Teléfono', iconName: 'phone'},
+	{callback: phone_parser},
 	{callback: generic_tag_parser, tag: 'contact:fax', label: 'Fax', iconName: 'fax'},
 	{callback: internet_access_parser},
 	{callback: email_parser},
 	{callback: website_parser},
+	{callback: opening_tag_parser},
+	{callback: parse_osm_times},
+	{callback: generic_tag_parser, tag: 'description', label: 'Descripció'},
     ].concat(functions)
 
     for (var i = 0; i < functions.length; i++) {
@@ -237,8 +294,7 @@ function parse_tags(element, titlePopup, functions) {
 	}
     }
 
-    markerPopup += '<br> <span class="fa fa-comments"></span> ';
-    markerPopup += '<a href="#" onclick="javascript: sidebar.open(\'comments\'); return false;">Ver comentarios</a>';
+	markerPopup += '<br><a href="#" onclick="javascript: sidebar.open(\'developer\'); return false;">Informació al detall (expert)</a>';
 
     return markerPopup;
 }

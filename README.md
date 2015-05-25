@@ -1,10 +1,10 @@
-# osm-pois
+# OpenStreetMap la Palma de Cervelló
 
-Show POIs from OSM in a map
+Local OpenStreetMap map (la Palma de Cervelló) showing multiple data with leaflet plugins.
 
 ## Live version!
 
-http://pois.elblogdehumitos.com.ar/
+http://www.konfraria.org/osm/cerca/web
 
 ## Forked versions
 
@@ -12,6 +12,9 @@ http://pois.elblogdehumitos.com.ar/
  - http://mapa.barriohacker.net/
 
 ## Attribution
+
+Forked from:
+ - http://pois.elblogdehumitos.com.ar/ (Humitos)
 
 Strongly based on :
  - http://unterkunftskarte.de/

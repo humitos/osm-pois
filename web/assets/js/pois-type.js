@@ -1,84 +1,97 @@
 // All the POIs shown in the map
 
 var pois = {
-    bar: {
+
+    biergarten: {
 	name: 'Bar',
-	query: '[amenity=bar]',
-	iconName: 'bar_coktail'
+	query: '[amenity=biergarten]',
+	iconName: 'bar_coktail',
     },
 
     pub: {
 	name: 'Pub',
 	query: '[amenity=pub]',
-	iconName: 'bar'
+	iconName: 'bar',
     },
 
     restaurant: {
-	name: 'Restaurante',
+	name: 'Restaurant',
 	query: '[amenity=restaurant]',
-	iconName: 'restaurant'
+	iconName: 'restaurant',
     },
 
-    coffee: {
-	name: 'Café',
-	query: '[shop=coffee]',
+    cafe: {
+	name: 'Cafè',
+	query: '[amenity=cafe]',
 	iconName: 'coffee'
     },
 
-    fast_food: {
-	name: 'Comida Rápida',
-	query: '[amenity=fast_food]',
-	iconName: 'fastfood'
+//    fast_food: {
+//	name: 'Menjar ràpid',
+//	query: '[amenity=fast_food]',
+//	iconName: 'fastfood'
+//    },
+
+    caterer: {
+	name: 'Menjar preparat',
+	query: '[craft=caterer]',
+	iconName: 'takeaway'
     },
 
     internet_access: {
-	name: 'Lugares con WiFi',
+	name: 'Llocs amb WiFi',
 	query: '[internet_access][internet_access!=no]',
 	iconName: 'wifi'
     },
 
     bank: {
-	name: 'Banco',
+	name: 'Banc',
 	query: '[amenity=bank]',
 	iconName: 'bank',
 	tagParser: bank_parser
     },
 
     atm: {
-	name: 'Cajero',
+	name: 'Caixer',
 	query: '[amenity=atm]',
 	iconName: 'atm-2'
     },
 
     fuel: {
-	name: 'Estación de Servicio',
+	name: 'Estació de servei',
 	query: '[amenity=fuel]',
 	iconName: 'fillingstation',
 	tagParser: fuel_parser
     },
 
     wheel_repair: {
-	name: 'Gomería',
+	name: 'Rodes',
 	query: '[shop=car_repair][car_repair=wheel_repair]',
 	iconName: 'tires'
     },
 
     car_repair: {
-	name: 'Mecánico',
+	name: 'Mecànic',
 	query: '[shop=car_repair][car_repair!=wheel_repair]',
 	iconName: 'repair'
     },
 
     bus_stop: {
-	name: 'Parada de Colectivos',
+	name: 'Parada de bus',
 	query: '[highway=bus_stop]',
 	iconName: 'busstop'
     },
 
     bus_station: {
-	name: 'Terminal de Ómnibus',
+	name: 'Terminal d\'omnibus',
 	query: '[amenity=bus_station]',
 	iconName: 'bus'
+    },
+
+    training: {
+	name: 'Acadèmia',
+	query: '[amenity=training]',
+	iconName: 'school'
     },
 
     clinic: {
@@ -95,63 +108,208 @@ var pois = {
     },
 
     pharmacy: {
-	name: 'Farmacia',
+	name: 'Farmàcia',
 	query: '[amenity=pharmacy]',
 	iconName: 'drugstore'
     },
 
+    dentist: {
+	name: 'Dentista',
+	query: '[amenity=dentist]',
+	iconName: 'dentist'
+    },
+
+    veterinary: {
+	name: 'Veterinari',
+	query: '[amenity=veterinary]',
+	iconName: 'veterinary'
+    },
+
+    physician: {
+	name: 'Fisioteràpia',
+	query: '[office=physician]',
+	iconName: 'massage'
+    },
+
+    hairdresser: {
+	name: 'Perruqueria',
+	query: '[shop=hairdresser]',
+	iconName: 'barber'
+    },
+
+    beauty: {
+	name: 'Estètica',
+	query: '[shop=beauty]',
+	iconName: 'beautysalon'
+    },
+
     supermarket: {
-	name: 'Supermercado',
+	name: 'Supermercat',
 	query: '[shop=supermarket]',
 	iconName: 'supermarket'
     },
 
     convenience: {
-	name: 'Despensa',
+	name: 'Queviures',
 	query: '[shop=convenience]',
 	iconName: 'conveniencestore'
     },
 
+    bakery: {
+	name: 'Forn',
+	query: '[shop=bakery]',
+	iconName: 'bakery'
+    },
+
+    greengrocer: {
+	name: 'Fruiteria',
+	query: '[shop=greengrocer]',
+	iconName: 'fruits'
+    },
+
+    farm: {
+	name: 'Productes de granja',
+	query: '[shop=farm]',
+	iconName: 'farmstand'
+    },
+
+    herbalist: {
+	name: 'Herboristeria',
+	query: '[shop=herbalist]',
+	iconName: 'herbalist'
+    },
+
+    newsagent: {
+	name: 'Diaris',
+	query: '[shop=newsagent]',
+	iconName: 'newsagent'
+    },
+
     kiosk: {
-	name: 'Kiosko',
+	name: 'Quiosc',
 	query: '[shop=kiosk]',
 	iconName: 'kiosk'
     },
 
-    butcher: {
-	name: 'Carnicería',
-	query: '[shop=butcher]',
-	iconName: 'butcher-2'
+    pet: {
+	name: 'Mascotes',
+	query: '[shop=pet]',
+	iconName: 'pets'
     },
 
-    gallery: {
-	name: 'Galería de Arte',
-	query: '[tourism=gallery]',
-	iconName: 'museum_art'
+    video: {
+	name: 'Vídeoclub',
+	query: '[shop=video]',
+	iconName: 'movierental'
     },
 
-    museum: {
-	name: 'Museo',
-	query: '[tourism=museum]',
-	iconName: 'museum_crafts'
+    jewelry: {
+	name: 'Joieria',
+	query: '[shop=jewelry]',
+	iconName: 'jewelry'
     },
+
+    fabric: {
+	name: 'Merceria',
+	query: '[shop=fabric]',
+	iconName: 'lingerie'
+    },
+
+    computer: {
+	name: 'Informàtica',
+	query: '[shop=computer]',
+	iconName: 'computers'
+    },
+
+//    butcher: {
+//	name: 'Carniceria',
+//	query: '[shop=butcher]',
+//	iconName: 'butcher-2'
+//    },
+
+    doityourself: {
+	name: 'Bricolatge',
+	query: '[shop=doityourself]',
+	iconName: 'hiretools'
+    },
+
+
+    electrical_equipment: {
+	name: 'Mat.elèctric',
+	query: '[shop=electrical_equipment]',
+	iconName: 'power'
+    },
+
+    reforms: {
+	name: 'Construccions',
+	query: '[craft=reforms]',
+	iconName: 'plastering'
+    },
+
+    electrician: {
+	name: 'Electricista',
+	query: '[craft=electrician]',
+	iconName: 'power'
+    },
+
+    window_construction: {
+	name: 'Al·lumini',
+	query: '[craft=window_construction]',
+	iconName: 'glazer'
+    },
+
+    glaziery: {
+	name: 'Cristalleria',
+	query: '[shop=glaziery]',
+	iconName: 'glazer'
+    },
+
+    painter: {
+	name: 'Pintors',
+	query: '[craft=painter]',
+	iconName: 'paint'
+    },
+
+    swimming_pool: {
+	name: 'Botiga de piscines',
+	query: '[shop=swimming_pool]',
+	iconName: 'swimming2'
+    },
+
+//    gallery: {
+//	name: 'Galeria d\'art',
+//	query: '[tourism=gallery]',
+//	iconName: 'museum_art'
+//    },
+
+//    museum: {
+//	name: 'Museu',
+//	query: '[tourism=museum]',
+//	iconName: 'museum_crafts'
+//    },
 
     theatre: {
-	name: 'Teatro',
+	name: 'Teatre',
 	query: '[amenity=theatre]',
 	iconName: 'theater'
     },
 
-    viewpoint: {
-	name: 'Mirador',
-	query: '[tourism=viewpoint]',
-	iconName: 'sight-2'
+    paintball: {
+	name: 'Paintball',
+	query: '[sport=shooting][shooting=paintball]',
+	iconName: 'paintball'
     },
 
-    'camp_site': {
-	name: 'Camping',
-	query: '[tourism=camp_site]',
-	iconName: 'camping-2'
+//    'camp_site': {
+//	name: 'Camping',
+//	query: '[tourism=camp_site]',
+//	iconName: 'camping-2'
+//    },
+
+    information: {
+	name: 'Informació turística',
+	query: '[tourism=information]',
+	iconName: 'information'
     },
 
     hotel: {
@@ -161,21 +319,28 @@ var pois = {
 	tagParser: hotel_parser
     },
 
-    hostel: {
-	name: 'Hostel',
-	query: '[tourism=hostel]',
-	iconName: 'youthhostel'
+//    hostel: {
+//	name: 'Hostel',
+//	query: '[tourism=hostel]',
+//	iconName: 'youthhostel'
+//    },
+
+
+//    sports_centre: {
+//	name: 'Club',
+//	query: '[leisure=sports_centre]',
+//	iconName: 'stadium'
+//    },
+
+    viewpoint: {
+	name: 'Mirador',
+	query: '[tourism=viewpoint]',
+	iconName: 'sight-2'
     },
 
-    information: {
-	name: 'Información Turística',
-	query: '[tourism=information]',
-	iconName: 'information'
-    },
-
-    sports_centre: {
-	name: 'Club',
-	query: '[leisure=sports_centre]',
-	iconName: 'stadium'
+    ruins: {
+	name: 'Runes (i cabanes)',
+	query: '[historic=ruins]',
+	iconName: 'ruins'
     }
 }

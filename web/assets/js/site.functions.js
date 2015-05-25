@@ -21,8 +21,21 @@ function get_poi(element) {
 	if (e.tags.car_repair == 'wheel_repair') type = 'wheel_repair';
 	if (type == '') type = e.tags.shop;
     }
+    if (e.tags.sport) {
+	if (e.tags.shooting == 'paintball') type = 'paintball';
+	if (type == '') type = e.tags.shooting;
+    }
     if (e.tags.leisure) {
 	if (type == '') type = e.tags.leisure;
+    }
+    if (e.tags.office) {
+	if (type == '') type = e.tags.office;
+    }
+    if (e.tags.craft) {
+	if (type == '') type = e.tags.craft;
+    }
+    if (e.tags.historic) {
+	if (type == '') type = e.tags.historic;
     }
 
     var poi = pois[type];
@@ -76,17 +89,6 @@ function callback(data) {
 	marker.on('click', function(e) {
 	    var element = e.target._element;
 	    $('#developer > .tags').html(develop_parser(element));
-
-	    var name = element.tags.name ? element.tags.name : element.id;
-	    $('#comments #comment-name').html(name);
-	    // reload disqus thread
-	    DISQUS.reset({
-		reload: true,
-		config: function () {
-		    this.page.identifier = element.id;
-		    this.page.url = 'http://pois.elblogdehumitos.com.ar/#!' + element.id;
-		}
-	    });
 	});
 
 	if (poi.tagParser) var markerPopup = poi.tagParser(e);
