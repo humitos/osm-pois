@@ -301,6 +301,12 @@ var pois = {
 	iconName: 'lawncareicon'
     },
 
+    garden_centre: {
+	name: 'Jardineria i plantes',
+	query: '[shop=garden_centre]',
+	iconName: 'flowers'
+    },
+
     swimming_pool: {
 	name: 'Botiga de piscines',
 	query: '[shop=swimming_pool]',
