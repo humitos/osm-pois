@@ -166,3 +166,4 @@ if (uri.hasQuery('pois')) {
 }
 
 expert_mode_init();
+load_geojson();

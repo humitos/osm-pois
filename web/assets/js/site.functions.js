@@ -208,3 +208,9 @@ function expert_mode_init() {
 
 }
 
+function load_geojson() {
+    url = '/poi/data.geojson';
+    data = $.getJSON(url, function(data) {
+	L.geoJson(data, {}).addTo(map);
+    });
+}

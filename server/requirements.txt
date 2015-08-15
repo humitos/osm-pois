@@ -1,0 +1,8 @@
+pip
+setuptools
+django
+django-debug-toolbar
+djangorestframework
+dj-cmd
+django-extensions
+jedi
