@@ -28,7 +28,7 @@ function develop_parser(element) {
 
     // Edit in OpenStreetMap
     var link = Mustache.render(
-	'http://www.openstreetmap.org/edit?editor=id&node={{id}}',
+	'http://www.openstreetmap.org/edit?node={{id}}',
 	{id: element.id}
     );
     markerPopup += Mustache.render(
