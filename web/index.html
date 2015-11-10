@@ -1,26 +1,33 @@
+<!doctype html>
+<html lang="es">
   <head>
     <title>Puntos de Interés</title>
+    <meta name="description" content="Muestra puntos de interés desde OpenStreetMap en un mapa">
+    <meta name="keywords" content="lugares, map, mapa, openstreetmap, osm, places, pdi, poi, poimap, point of interest, punto de interés, web mapping app">
+    <meta name="author" content="Manuel Kaufmann (aka Humitos) y colaboradores">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <meta property="og:title" content="Puntos de Interés" />
+    <meta property="og:description" content="Encuentra los puntos de interés cerca de dónde estés" />
+    <meta property="og:locale" content="es_ES" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://pois.elblogdehumitos.com.ar/" />
     <meta property="og:image" content="http://pois.elblogdehumitos.com.ar/assets/img/preview.jpg" />
-    <meta property="og:description" content="Encuentra los puntos de interés cerca de dónde estés." />
-    <link rel="shortcut icon" href="assets/img/favicon.ico"/>
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+    <link rel="shortcut icon" href="assets/img/favicon.ico" />
+    <link rel="stylesheet" href="assets/css/leaflet.css" />
     <link rel="stylesheet" href="assets/css/Control.Loading.css" />
     <link rel="stylesheet" href="assets/css/Control.Geocoder.css" />
-    <link rel="stylesheet" href="assets/css/leaflet.label.css" />
 
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/site.css">
     <link rel="stylesheet" href="assets/css/leaflet-sidebar.css" />
 
-    <link href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/L.Control.Locate.min.css" />
     <!--[if lt IE 9]>
-	<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.ie.css' rel='stylesheet' />
+	<link rel="stylesheet" href="assets/css/L.Control.Locate.ie.min.css" />
     <![endif]-->
   </head>
 
@@ -64,19 +71,19 @@
 	  se muestra al inicio (o bien haciendo click en <em>"la
 	  casita"</em>), pudiendo seleccionar varios a la vez.</p>
 
-	  <img src="assets/img/help-select-pois.jpg">
+	  <img src="assets/img/help-select-pois.jpg" alt="help-select-pois">
 
 	  <p>Una vez seleccionados los puntos de interés, los mismos
 	  se mostrarán en el mapa luego de algunos segundos
 	  (dependiendo de la conexión a internet) con diferentes
 	  íconos y colores para una rápida visualización.</p>
 
-	  <img src="assets/img/help-show-pois.jpg">
+	  <img src="assets/img/help-show-pois.jpg" alt="help-show-pois">
 
 	  <p>Si al seleccionar los POIs que quieres mostrar en el
 	  mapa, te aparece un mensaje como este:</p>
 
-	  <img src="assets/img/help-message.jpg">
+	  <img src="assets/img/help-message.jpg" alt="help-message">
 
 	  <p>Tenés que agrandar un poco más el mapa para que aparezcan
 	  los puntos.</p>
@@ -85,20 +92,20 @@
 	  achicar el mapa (también funciona con la ruedita del
 	  mouse).</p>
 
-	  <img src="assets/img/help-controls.jpg">
+	  <img src="assets/img/help-controls.jpg" alt="help-controls">
 
 	  <p>La "lupa" sirve para buscar una ciudad diferente a la que
 	  se está mostrando en el mapa, ingresando el nombre y la
 	  provincia de la misma. Por ejemplo, "capilla del monte,
 	  córdoba" y presionando <em>Enter</em>.</p>
 
-	  <img src="assets/img/help-geoposition.jpg">
+	  <img src="assets/img/help-geoposition.jpg" alt="help-geoposition">
 
 	  <p>Además hay un ícono con una "flechita" que sirve para
 	  centrar el mapa en la posición en la que te encuentras
 	  actualmente.</p>
 
-	  <img src="assets/img/help-my-position.jpg">
+	  <img src="assets/img/help-my-position.jpg" alt="help-my-position">
 
 	  <p>¡Espero que te sea de utilidad!</p>
 
@@ -107,18 +114,18 @@
 	<div class="sidebar-pane" id="faq">
 	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span></div>
 	  <h1>Preguntas frecuentes</h1>
-	  <p>
-	    <ul>
-	      <div class="item">
-		<li><strong>¿Cómo puedo agregar más <em>POIs</em> a la lista?</strong></li>
+
+	  <div class="item">
+		<p><strong>¿Cómo puedo agregar más <em>POIs</em> a la lista?</strong></p>
 		<p>Podés <a href="mailto:humitos@gmail.com">contactarte
 		conmigo por email</a> (o <a href="#comments"
 		onclick="javascript:sidebar.open('comments')">dejar un
 		comentario</a>) y comentarme qué tipo de punto de
 		interés querés agregar así lo sumo a la lista.</p>
-	      </div>
-	      <div class="item">
-		<li><strong>¿Para qué sirve el link <em>Compartir este mapa (link)</em> que está en la lista de POIs?</strong></li>
+	  </div>
+
+	  <div class="item">
+		<p><strong>¿Para qué sirve el link <em>Compartir este mapa (link)</em> que está en la lista de POIs?</strong></p>
 		<p>Cuando necesites mostrarle el mismo mapa que vos
 		estás viendo a otra persona, podés pasarle ese link y
 		así compartir el mapa. Para eso, tenés que hacer click
@@ -126,17 +133,16 @@
 		texto <em>Compartir este mapa (link)</em> y luego
 		"Copiar dirección de enlace" para guardarlo en el
 		portapapeles.</p>
-	      </div>
-	      <div class="item">
-		<li><strong>Estoy seguro que un POI tiene más información de la que se muestra. ¿Porqué?</strong></li>
+	  </div>
+
+	  <div class="item">
+		<p><strong>Estoy seguro que un POI tiene más información de la que se muestra. ¿Porqué?</strong></p>
 		<p>Es probable que algunas
 		etiquetas <em>importantes</em> se me hayan pasado y
 		que estén faltando. Enviame un email o dejá un
 		comentario en el sitio mecionando el POI en cuestión y
 		lo resolveré a la brevedad.</p>
-	      </div>
-	    </ul>
-	  </p>
+	   </div>
 	</div>
 
 	<div class="sidebar-pane" id="about">
@@ -177,56 +183,51 @@
 	<div class="sidebar-pane" id="links">
 	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span></div>
 	  <h1>Enlaces de interés</h1>
-	  <p>
-	    <ul>
-	      <div class="item">
-		<li><strong>Ruteador:</strong> <a href="http://map.project-osrm.org/">Project OSRM</a>
-		  <p>Permite obtener una ruta seleccionando el punto
-		  de inicio y fin. Además, se le pueden agregar puntos
-		  intermedios.</p>
-		</li>
-	      </div>
-	      <div class="item">
-		<li><strong>Mapas para Garmin:</strong> <a href="http://www.i-nis.com.ar/osm/garmin">i-nis.com.ar</a>
-		  <p>Mapas listos para copiar en los dispositivos
-		  Garmin y obtener todo el poder de OSM en tu GPS.</p>
-		</li>
-	      </div>
-	      <div class="item">
-		<li><strong>Guía rápida sobre OpenStreetMap:</strong> <a href="http://learnosm.org/es/">LearnOSM</a>
-		  <p>Guía rápida en Español para aprender a utilizar
-		  OSM y todos sus beneficios en pocos pasos.</p>
-		</li>
-	      </div>
-	      <div class="item">
-		<li><strong>Tu negocio en OpenStreetMap:</strong> <a href="http://elblogdehumitos.com.ar/osm/">onosm (version en español)</a>
-		  <p>Agrega rápidamente tu negocio o POI favorito al
-		  mapa de OpenStreetMap. ¡Es rápido, fácil y no se
-		  necesita estar registrado!</p>
-		</li>
-	      </div>
-	      <div class="item">
-		<li><strong>OSM en tu Android:</strong> <a href="http://osmand.net/">OsmAnd</a>
-		  <p>¡Todo el poder de los mapas OSM en tu Android sin
-		  estar conectado a internet!.</p>
-		</li>
-	      </div>
-	      <div class="item">
-		<li><strong>Comunidad Argentina de OSM:</strong> <a href="http://openstreetmap.org.ar/">OSM Argentina</a>
-		  <p>Comunidad de Usuarios de OSM con locación en
-		  Argentina. ¡Sumate!</p>
-		</li>
-	      </div>
-	      <div class="item">
-		<li><strong>Crea tus mapas fácilmente:</strong> <a href="http://umap.openstreetmap.fr/es/">uMap</a>
-		  <p>uMap te permite crear mapas con capas de
-		  OpenStreetMap en un minuto y embeberlo en tu
-		  sitio.</p>
-		</li>
-	      </div>
 
-	    </ul>
-	  </p>
+	  <div class="item">
+		<p><strong>Ruteador:</strong> <a href="http://map.project-osrm.org/">Project OSRM</a></p>
+		<p>Permite obtener una ruta seleccionando el punto
+		de inicio y fin. Además, se le pueden agregar puntos
+		intermedios.</p>
+	  </div>
+
+	  <div class="item">
+		<p><strong>Mapas para Garmin:</strong> <a href="http://www.i-nis.com.ar/osm/garmin">i-nis.com.ar</a></p>
+		<p>Mapas listos para copiar en los dispositivos
+		Garmin y obtener todo el poder de OSM en tu GPS.</p>
+	  </div>
+
+	  <div class="item">
+		<p><strong>Guía rápida sobre OpenStreetMap:</strong> <a href="http://learnosm.org/es/">LearnOSM</a></p>
+		<p>Guía rápida en Español para aprender a utilizar
+		OSM y todos sus beneficios en pocos pasos.</p>
+	  </div>
+
+	  <div class="item">
+		<p><strong>Tu negocio en OpenStreetMap:</strong> <a href="http://elblogdehumitos.com.ar/osm/">onosm (version en español)</a></p>
+		<p>Agrega rápidamente tu negocio o POI favorito al
+		mapa de OpenStreetMap. ¡Es rápido, fácil y no se
+		necesita estar registrado!</p>
+	  </div>
+
+	  <div class="item">
+		<p><strong>OSM en tu Android:</strong> <a href="http://osmand.net/">OsmAnd</a></p>
+		<p>¡Todo el poder de los mapas OSM en tu Android sin
+		estar conectado a internet!.</p>
+	  </div>
+
+	  <div class="item">
+		<p><strong>Comunidad Argentina de OSM:</strong> <a href="http://openstreetmap.org.ar/">OSM Argentina</a></p>
+		<p>Comunidad de Usuarios de OSM con locación en
+		Argentina. ¡Sumate!</p>
+	  </div>
+
+	  <div class="item">
+		<p><strong>Crea tus mapas fácilmente:</strong> <a href="http://umap.openstreetmap.fr/es/">uMap</a></p>
+		<p>uMap te permite crear mapas con capas de
+		OpenStreetMap en un minuto y embeberlo en tu
+		sitio.</p>
+	  </div>
 	</div>
 
 	<div class="sidebar-pane" id="software">
@@ -245,7 +246,6 @@
 		<li><a href="https://github.com/makinacorpus/Leaflet.RestoreView">Leaflet.RestoreView</a> © Makina Corpus</li>
 		<li><a href="https://github.com/kartenkarsten/leaflet-layer-overpass">L.OverPassLayer</a> © kartenkarsten</li>
 		<li><a href="https://github.com/mlevans/leaflet-hash">L.Hash</a> © Michael Lawrence Evans</li>
-		<li><a href="https://github.com/Leaflet/Leaflet.label">Leaflet.label</a> © Leaflet</li>
 	      </ol>
 	    </li>
 	    <li><a href="http://fortawesome.github.io/Font-Awesome/">Font-Awesome</a> © Dave Gandy</li>
@@ -261,13 +261,13 @@
 	<div class="sidebar-pane" id="comments">
 	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span></div>
 	  <h1>Comentarios</h1>
-	  <p>¡Dejá un comentario para <strong id="comment-name">nuestro website</strong>!</p>
+	  <p>¿Errores? ¿Ideas? ¿Sugerencias?</p>
+	  <p>¡Dejanos tus comentarios!</p>
 	  <div id="disqus_thread"></div>
 	  <script type="text/javascript">
 	    var disqus_shortname = 'osmpois'; // required: replace example with your forum shortname
 	    var disqus_identifier = 'pois-homepage';
 	    var disqus_url = 'http://pois.elblogdehumitos.com.ar/';
-
 	    /* * * DON'T EDIT BELOW THIS LINE * * */
 	    (function() {
 		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -289,17 +289,6 @@
 	  en alguno de los POIs que aparecen en el mapa luego de
 	  seleccionar algunos de la lista.</p>
 
-	  <p>También puedes crear tu propia consulta utilizando
-	  OverpassAPI para buscar, por ejemplo, un POI que <em>no
-	  esté</em> en al lista marcando el siguiente checkbox.</p>
-
-	  <div>
-	    <label><input id="expert-mode" type="checkbox"/><span>Custom OverpassAPI Query</span></label>
-	    <form id="expert-form" style="display: none;">
-	      <input id="expert-query" style="width: 100%;" name="query" type="text" placeholder="[internet_access=wlan][amenity=fuel]"/>
-	    </form>
-	  </div>
-
 	  <p class="tags"></p>
 	</div>
 
@@ -309,26 +298,23 @@
     <div id="map" class="sidebar-map"></div>
 
     <div id="spinner" style="display: none;">
-      <img src="assets/img/spinner.gif">
+      <img src="assets/img/spinner.gif" alt="spinner">
     </div>
 
     <!-- Javascripts -->
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
-
-    <script src="assets/js/leaflet.label.js"></script>
+    <script src="assets/js/leaflet.js"></script>
     <script src="assets/js/Control.Geocoder.js"></script>
     <script src="assets/js/leaflet.restoreview.js"></script>
     <script src="assets/js/leaflet-sidebar.js"></script>
     <script src="assets/js/Control.Loading.js"></script>
-    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.js"></script>
-    <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+    <script src="assets/js/L.Control.Locate.min.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
     <script src="assets/js/URI.js"></script>
     <script src="assets/js/OverPassLayer.js"></script>
     <script src="assets/js/leaflet-hash.js"></script>
     <script src="assets/js/mustache.js"></script>
     <script src="assets/js/tags-parsers.js"></script>
     <script src="assets/js/pois-type.js"></script>
-    <script src="assets/js/site.functions.js"></script>
     <script src="assets/js/site.js"></script>
 
     <!-- Piwik -->
@@ -346,5 +332,6 @@
     </script>
     <noscript><p><img src="//elblogdehumitos.com.ar/piwik/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
     <!-- End Piwik Code -->
+
   </body>
 </html>
