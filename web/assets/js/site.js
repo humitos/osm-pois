@@ -14,57 +14,57 @@ var attribution = 'Datos &#169; Colaboradores <a href="http://openstreetmap.org/
 var tileLayerData = {
     std: {
 	name: 'Estándar (Mapnik)',
-	url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+	url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
     },
     hot: {
 	name: 'Equipo Humanitario',
-	url: 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+	url: 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
 	attribution: 'Teselas <a href="http://hot.openstreetmap.org/" target="_blank">Equipo Humanitario OpenStreetMap</a>'
     },
     osmfr: {
 	name: 'OSM Francia',
-	url: 'http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png',
+	url: 'https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png',
 	attribution: 'Teselas <a href="http://openstreetmap.fr/" target="_blank">OpenStreetMap Francia</a>'
     },
     cycle: {
 	name: 'Bicicleta',
-	url: 'http://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png',
+	url: 'https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png',
 	attribution: 'Teselas <a href="http://thunderforest.com/opencyclemap/" target="_blank">ThunderForest</a>'
     },
     transport: {
 	name: 'Transporte Público',
-	url: 'http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png',
+	url: 'https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png',
 	attribution: 'Teselas <a href="http://thunderforest.com/transport/" target="_blank">ThunderForest</a>'
     },
     landscape: {
 	name: 'Paisaje',
-	url: 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',
+	url: 'https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',
 	attribution: 'Teselas <a href="http://thunderforest.com/landscape/" target="_blank">ThunderForest</a>'
     },
     outdoor: {
 	name: 'Al Aire Libre',
-	url: 'http://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png',
+	url: 'https://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png',
 	attribution: 'Teselas <a href="http://thunderforest.com/outdoors/" target="_blank">ThunderForest</a>'
     },
     lyrk: {
 	name: 'Lyrk',
-	url: 'http://tiles.lyrk.org/ls/{z}/{x}/{y}?apikey=3d836013a4ab468f965bfd1328d89522',
+	url: 'https://tiles.lyrk.org/ls/{z}/{x}/{y}?apikey=3d836013a4ab468f965bfd1328d89522',
 	attribution: 'Teselas <a href="http://lyrk.de/" target="_blank">Lyrk</a>'
     },
     mapbox: {
 	name: 'MapBox (Calles)',
-	url: 'http://{s}.tiles.mapbox.com/v3/51114u9.kogin3jb/{z}/{x}/{y}.png',
+	url: 'https://{s}.tiles.mapbox.com/v3/51114u9.kogin3jb/{z}/{x}/{y}.png',
 	attribution: 'Teselas <a href="http://mapbox.com/" target="_blank">MapBox</a>'
     },
     mapquest: {
 	name: 'MapQuest Open',
-	url: 'http://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
+	url: 'https://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
 	attribution: 'Teselas <a href="http://mapquest.com/" target="_blank">MapQuest</a>',
 	subdomains: '123'
     },
     mapsurfer: {
 	name: 'OpenMapSurfer',
-	url: 'http://openmapsurfer.uni-hd.de/tiles/roads/x={x}&y={y}&z={z}',
+	url: 'https://openmapsurfer.uni-hd.de/tiles/roads/x={x}&y={y}&z={z}',
 	attribution: 'Teselas <a href="http://giscience.uni-hd.de/" target="_blank">GIScience Research Group @ Heidelberg University</a>'
     }
 };
