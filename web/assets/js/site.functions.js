@@ -152,6 +152,7 @@ function show_overpass_layer() {
 	return;
     }
     var opl = new L.OverPassLayer({
+        endpoint: "https://overpass-api.de/api/",
 	query: query,
 	callback: callback,
 	minzoom: 14
