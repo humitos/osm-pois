@@ -1,0 +1,443 @@
+  <head>
+    <title>OpenStreetMap - la Palma de Cervelló</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta property="og:title" content="OpenStreetMap - la Palma de Cervelló" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.konfraria.org/osm/cerca/web" />
+    <meta property="og:image" content="http://www.konfraria.org/osm/cerca/web/assets/img/preview.jpg" />
+    <meta property="og:description" content="Mapa per la Palma de Cervelló amb cerca de punts d'interès i altra informació." />
+    <link rel="shortcut icon" href="assets/img/favicon.ico"/>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="assets/css/Control.Loading.css" />
+    <link rel="stylesheet" href="assets/css/Control.Geocoder.css" />
+    <link rel="stylesheet" href="assets/css/leaflet.label.css" />
+    <link rel="stylesheet" href="assets/css/leaflet.zoomhome.css" />
+
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="stylesheet" href="assets/css/leaflet-sidebar.css" />
+    <link rel="stylesheet" href="assets/print/easyPrint.css" />
+    <link rel="stylesheet" href="assets/css/leaflet.elevation-0.0.4.css" />
+
+    <link href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+	<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.ie.css' rel='stylesheet' />
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="sidebar" class="sidebar collapsed">
+      <!-- Nav tabs -->
+      <ul class="sidebar-tabs" role="tablist">
+	<li><a href="#home" role="tab"><i class="fa fa-map-marker"></i></a></li>
+	<li><a href="#search" role="tab"><i class="fa fa-search"></i></a></li>
+	<li><a href="#mapillary" role="tab"><i class="fa fa-road"></i></a></li>
+	<li><a href="#routes" role="tab"><i class="fa fa-compass"></i></a></li>
+	<li><a href="#wikipedia" role="tab"><i class="fa fa-book"></i></a></li>
+	<li><a href="#links" role="tab"><i class="fa fa-link"></i></a></li>
+	<li><a href="#developer" role="tab"><i class="fa fa-code"></i></a></li>
+	<li><a href="#about" role="tab"><i class="fa fa-info-circle"></i></a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="sidebar-content active">
+
+	<!--PUNTS D'INTERÈS-->
+	<A NAME="home_init"></A>
+	<div class="sidebar-pane" id="home">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-support"
+          onClick="location.href='#help_home'"> Ajuda (PDI)</button></center>
+	  <h1>Punts d'interès</h1>
+	  <p>Seleccioneu els punts que voleu visualitzar al mapa i després tanqueu aquest panell fent clic a
+           la <b>«X»</b> per poder visualitzar-lo més bé.</p>
+	  <p class="permalink">
+	  <span class="fa fa-link"></span>
+	  <a id="permalink" href="#">Comparteix aquest mapa (enllaç)</a>
+	  </p>
+	  <div id="pois"></div>
+	  <!--Home - ajuda -->
+	  <br><hr width="90%">
+	  <A NAME="help_home"></A>
+	  <h1><span class="fa fa-support"></span> Ajuda</h1>
+	  <p style="text-align:justify; margin-right:5px;">Des d'aquesta secció podeu seleccionar els punts 
+	  d'interès que voleu visualitzar al mapa. Cal que seleccioneu tots aquells punts que desitgeu,
+	  marcant-ne la casella corresponent:</p>
+	  <center><img src="assets/img/help/pdis.png" width="80%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Quan els hàgiu seleccionat podeu tancar el panell
+           fent clic sobre la <b>«X»</b> que hi ha al capdamunt a l'esquerra, i en uns segons (en funció de la
+           connexió a Internet) us apareixeran els punts d'interès sobre el mapa:</p>
+	  <center><img src="assets/img/help/pdis2.png" width="90%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Ara podreu seleccionar la icona de qualsevol dels
+	   punts d'interès per veure'n més informació (de la base de dades d'OSM). Alguns camps com
+	   el correu electrònic o el lloc web són enllaços que es poden seguir, i podreu trucar directament al
+	   telèfon de contacte si utilitzeu el mapa des d'un telèfon mòbil:</p>
+	  <center><img src="assets/img/help/popup.png" width="90%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Si us aparegués un missatge com aquest:</p>
+	  <center><img src="assets/img/help/zoom.png" width="100%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Significa que no s'ha arribat al nivell mínim
+	   d'apropament per visualitzar les icones, i per tant cal que us acosteu més al mapa (amb el botó
+            <b>«+»</b> del mapa, per exemple).</p>
+	  <p style="text-align:justify; margin-right:5px;">Si seguiu l'enllaç <b>«Informació al detall
+           (expert)»</b> que tenen tots els punts d'interès, s'obrirà automàticament el panell «Expert» amb la
+           informació de les etiquetes del punt d'interès a OpenStreetMap, i també enllaços per visualitzar
+            el punt d'interès a OSM o inclús per editar-lo:</p>
+	  <center><img src="assets/img/help/expert.png" width="90%"></center>
+	  <br>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-arrow-up"
+          onClick="location.href='#home_init'"> Inici</button></center>
+	</div>
+
+	<!--CERCA-->
+	<A NAME="search_init"></A>
+	<div class="sidebar-pane" id="search">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+          </div>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-support"
+          onClick="location.href='#help_search'"> Ajuda (cerca)</button></center>
+	  <!--Cerca a la Palma-->
+	  <h1>Cerca local<br><small>a la Palma de Cervelló</small></h1>
+	  <center><p><font style="font-family: verdana; font:size: 8px;">Cerqueu una adreça, un comerç, un nom
+           de casa, una masia, una font...</font>
+          <br><br>
+	  <input type="text" name="addr" value="" id="addr" width="100%" /><br>
+	  <button class="fa fa-search" type="button" onclick="addr_search();"> Cerca</button> <button class="fa
+          fa-trash" type="button" onclick="clear_layer2();"> Neteja</button></p></center>
+	  <div id="results"/>
+	  </div>
+
+          <br><hr width="90%">
+		
+	  <!--Cerca global-->	
+	  <h1>Cerca global<br><small>a tot el Món</small></h1>
+	  <center><p><font style="font-family: verdana; font:size: 8px;">Cerqueu una població, una adreça, un
+           comerç...</font><br><br>
+	  <input type="text" name="addr2" value="" id="addr2" width="100%" /><br>
+	  <button class="fa fa-search" type="button" onclick="addr_search2();"> Cerca</button> <button class="fa
+           fa-trash" type="button" onclick="clear_layer3();"> Neteja</button></p></center>
+	  <div id="results2"/>
+	  </div>
+
+     	  <br><hr width="90%">
+
+	  <!--Cerca - ajuda -->
+	  <A NAME="help_search"></A>
+	  <h1><span class="fa fa-support"></span> Ajuda</h1>
+	  <p style="text-align:justify; margin-right:5px;">Des d'aquesta secció podeu fer cerques tan
+          limitades a la zona de la Palma de Cervelló (cerca local) com a qualsevol lloc del Món. Per fer-ho
+           cal introduir la vostra cerca a la caixa:</p>
+	  <center><img src="assets/img/help/cerca.png" width="60%"></center>
+	  <p style="text-align:justify; margin-right:5px;">A continuació cal prémer el botó «Cerca» i
+          apareixeran un màxim de cinc resultats (a la cerca global en seran deu), com es mostra en aquesta
+           imatge:</p>
+	  <center><img src="assets/img/help/cerca1.png" width="90%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Finalment només cal que seleccioneu el resultat que
+	  voleu visualitzar al mapa, i si no us agrada, podeu tornar a obrir aquesta secció per seleccionar-ne 
+	  altre. Els resultats es mostraran a la cerca global en cercles verds els nodes i en caixes vermelles 
+          les vies, i a la cerca global en cercles i caixes blaves.</p>
+	  <center><img src="assets/img/help/cerca2.png" width="90%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Les caixes i els cercles que es dibuixen al mapa es 
+	  poden fer desaparèixer prement el botó «Neteja».</p>
+	  <br>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-arrow-up"
+          onClick="location.href='#search_init'"> Inici</button></center>
+	</div>
+
+	<!--MAPILLARY-->
+	<A NAME="mapillary_init"></A>
+	<div class="sidebar-pane" id="mapillary">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-support"
+          onClick="location.href='#help_mapillary'"> Ajuda (Mapillary)</button></center>
+	  <h1>Mapillary</h1>
+	  <center><img src="assets/img/mapillary.png" width="50" height="50">
+	  <p><b>Mapillary</b> és l'Street View lliure, està realitzat per voluntaris i les imatges es
+           distribueixen sota una llicència <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.ca"
+           target="_blank">CC BY-SA 4.0</a>.</p>
+	  <p><button type="button" onclick="refreshMapillary();">Troba 10 llocs a l'atzar a Mapillary</button>
+          </p>
+	  <p>Per trobar nous llocs a Mapillary, canvieu la vista del mapa i torneu a fer clic al botó.</p>
+	  <p><button type="button" onclick="clear_layer();">Neteja els marcadors de Mapillary</button></p>
+	  </center>
+
+	  <br><hr width="90%">
+
+	  <!--Mapillary - ajuda -->
+	  <A NAME="help_mapillary"></A>
+	  <h1><span class="fa fa-support"></span> Ajuda</h1>
+	  <p style="text-align:justify; margin-right:5px;">Des d'aquesta secció podeu trobar deu punts a
+	   l'atzar de la vostra vista del mapa, en els que es disposa de fotografia a Mapillary. Si us
+	   interessa localitzar fotografies en una zona concreta, és recomanable apropar-vos el màxim a
+	   aquella zona abans de fer clic a «Troba 10 llocs a l'atzar a Mapillary». Després de fer-ho us
+	   apareixeran 10 marcadors blaus al mapa:</p>
+	  <center><img src="assets/img/help/mapillary1.png" width="70%"></center>
+	  <p style="text-align:justify; margin-right:5px;">En seleccionar un dels marcadors us apareixerà una
+	   bafarada amb la fotografia a Mapillary de la zona:</p>
+	  <center><img src="assets/img/help/mapillary2.png" width="70%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Si seguiu l'enllaç <b>«Continua la seqüència a
+	   Mapillary»</b> s'obrirà la pàgina de Mapillary en una altra pestanya, en el punt exacte on éreu. I
+	   des d'allà podreu resseguir tota la ruta:</p>
+	  <center><img src="assets/img/help/mapillary_web.png" width="90%"></center>
+	  <br>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-arrow-up"
+          onClick="location.href='#mapillary_init'"> Inici</button></center>
+	</div>
+	
+	<!--RUTES-->
+	<A NAME="rutes_init"></A>
+	<div class="sidebar-pane" id="routes">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-support"
+          onClick="location.href='#help_rutes'"> Ajuda (rutes a peu)</button></center>
+	  <h1>Rutes a peu</h1>
+	  <p style="text-align:justify; margin-right:5px;">Les rutes han estat creades a partir de les dades
+           d'OpenStreetMap amb 
+	  <a href="https://graphhopper.com/maps/">GraphHopper</a>.</p>
+	  <p style="text-align:justify; margin-right:5px;">Seleccioneu la ruta que voleu visualitzar:</p>
+	  <center>
+	  <script>
+	  function urlgpx() {
+		url=document.select.gpx2.options[document.select.gpx2.selectedIndex].value;
+		}
+	  </script>
+		<form id="select" name="select">
+		<select id="gpx2" name="gpx2" onchange="cleargpx(); urlgpx();">
+		<option value='assets/gpx/track001.gpx' select>Passeig del Roure</option>
+		<option value='assets/gpx/track002.gpx' select>Camí de la Miranda</option>
+		<option value='assets/gpx/track003.gpx'>Passeig de la Font de Can Mascaró</option>
+		<option value='assets/gpx/track004.gpx'>Can Vidal-Can Llopart-Font del Marge</option>
+		<option value='assets/gpx/track005.gpx'>Cases de l'Aristot pel Maset</option>
+		<option value='assets/gpx/track006.gpx'>Can Via-Font del Maset</option>
+		<option value='assets/gpx/track007.gpx'>Camí de sotapenyes-Obaga</option>
+		<option value='assets/gpx/track008.gpx'>Camí de l'Obaga</option>
+		<option value='assets/gpx/track009.gpx'>Fontpineda i mirador dels Cingles</option>
+		<option value='assets/gpx/track010.gpx'>Ermita de Sant Vicenç Ferrer</option>
+		</select>
+		<p><button class="fa fa-search" type="button" onclick="urlgpx(); addgpx(); link();"> Mostra</button> <button
+                class="fa fa-trash" type="button" onclick="cleargpx();"> Neteja</button></p></center>
+	  </center>
+	  <center>
+	  <div id="info"></div>
+	  <div id="nom"></div>
+	  <div id="desc"></div>
+	  <div id="lev"></div>
+	  <div id="distance"></div>
+	  <div id="alt"></div>
+	  <div id="baix"></div>
+	  <div id="desni"></div>
+	  <div id="link"></div>
+	  <script >
+	  function link() {
+	 	if (url != 0) {
+		var link2 = '<a href=' +url+ ' target="_blank">fitxer GPX</a>';
+		document.getElementById("link").innerHTML="Enllaç: "+link2;}}
+	  </script>
+	  </center>
+
+	  <br><hr width="90%">
+
+	  <!-- Rutes - ajuda -->
+	  <A NAME="help_rutes"></A>
+	  <h1><span class="fa fa-support"></span> Ajuda</h1>
+	  <p style="text-align:justify; margin-right:5px;">Per poder visualitzar una ruta només cal que en
+	   seleccioneu una del llistat:</p>
+	  <center><img src="assets/img/help/ruta1.png" width="70%"></center>
+	  <p style="text-align:justify; margin-right:5px;">A continuació només cal seleccionar l'opció
+	  <b>«Mostra»</b> i us apareixerà la ruta centrada al mapa:</p>
+	  <center><img src="assets/img/help/ruta.png" width="70%"></center>
+	  <p style="text-align:justify; margin-right:5px;">Quan hàgiu obert la ruta, en aquest panell hi
+	   trobareu informacions diverses: la distància del recorregut, el guany d'alçada acumulat, etc.
+	   També hi trobareu un enllaç per poder baixar-vos el fitxer GPX de la ruta:</p>
+	  <center><img src="assets/img/help/info-ruta.png" width="80%"></center>
+	  <br>
+	  <center><button style="background:#2a2a2a; color:white; padding:5px;" class="fa fa-arrow-up"
+          onClick="location.href='#rutes_init'"> Inici</button></center>
+	</div>
+
+
+	<!--VIQUIPÈDIA-->
+	<div class="sidebar-pane" id="wikipedia">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <A NAME="IniciWiki"></A>
+	  <h1>La Palma de Cervelló a la Viquipèdia</h1>
+	  <center><p><button onclick="refreshIframe();">Torna a les categories</button></p></center>
+	  <p><iframe name="WikiPalma" width="100%" height="25000px" frameborder="0" scrolling="no"
+	   marginheight="0" marginwidth="0" src="http://ca.m.wikipedia.org/w/index.php?title=Categoria:La_Palma_de_Cervell%C3%B3&mobileaction=toggle_view_mobile"></iframe>
+	  <center><a href="#IniciWiki">Torna a l'inici</a></p></center></p>
+	  <script>
+		function refreshIframe() {
+   	 	var ifr = document.getElementsByName('WikiPalma')[0];
+   	 	ifr.src = ifr.src;
+		}
+	  </script>
+	  </div>
+
+	<!-- ENLLAÇOS D'INTERÈS -->
+	<div class="sidebar-pane" id="links">
+	<div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span></div>
+	  <h1>Enllaços d'interès</h1>
+	  <p>
+	    <ul>
+		<div class="item">
+		<li><strong>Comunitat catalana d'OSM:</strong> <a href="http://osmand.net/">OSMcatalà</a>
+		  <p style="text-align:justify; margin-right:5px;"><img width="75px" height="75px" align="right" src="assets/img/osmcatala.png">Trobareu informació i detalls sobre la comunitat catalana d'OSM a la pàgina del projecte al wiki d'OSM: <a href="http://wiki.openstreetmap.org/wiki/WikiProject_Catalan" target="_blank">Project Catalan</a>. També podeu interactuar-hi a través de la <a href="https://lists.openstreetmap.org/listinfo/talk-cat" target="_blank">llista de correu</a> o a través del compte <a href="https://twitter.com/osmcatala" target="_blank">@osmcatala</a> a Twitter.</p>
+		</li>
+	      </div>
+
+		<div class="item">
+		<li><strong>OSM al vostre mòbil:</strong> <a href="http://osmand.net/">OsmAnd</a>
+		  <p style="text-align:justify; margin-right:5px;"><img width="75px" height="75px" align="right" src="assets/img/osmand.png">L'<b>OsmAnd</b> és una de les aplicacions més completes per utilitzar OpenStreetMap al vostre telèfon intel·ligent, entre les seves funcionalitats en destaca l'ús de mapes fora de línia. L'OsmAnd està disponible per a Android i iPhone. A més a més, l'OsmAnd està completament <a href="https://www.softcatala.org/wiki/Projectes/OsmAnd" target="_blank">traduït al català per Softcatalà</a> i cada dilluns aquesta associació en genera un mapa per l'OsmAnd dels Països Catalans. En trobareu més informació a la <a href="https://www.softcatala.org/wiki/Projectes/Mapes_en_catal%C3%A0" target="_blank">pàgina del projecte</a> i <a href="https://www.softcatala.org/wiki/Projectes/Mapes_en_catal%C3%A0" target="_blank">baixada directa del fitxer</a> (aprox. 270 MB).</p>
+		</li>
+	      </div>
+
+	      <div class="item">
+		<li><strong>Càlcul de rutes:</strong> <a href="https://graphhopper.com/maps/">GraphHopper</a>
+		  <p style="text-align:justify; margin-right:5px;"><img hpace="5px" width="75px" height="75px" align="right" src="assets/img/graphhopper.png"><b>GraphHopper</b> us permet obtenir una ruta després de seleccionar un punt de partida i una destinació. A més a més, se li poden afegir punts intermedis. Permet calcular la ruta en cotxe, bicicleta i a peu; s'obté un perfil d'alçades i es pot exportar la ruta a un fitxer GPX.</p>
+		</li>
+	      </div>
+	      <div class="item">
+		<li><strong>Mapes per Garmin:</strong> <a href="http://mapas.alternativaslibres.es/descargas.php">alternativaslibres.es</a>
+		  <p style="text-align:justify; margin-right:5px;">Mapes preparats per copiar als dispositius Garmin i disposar de tot el poder d'OpenStreetMap al vostre GPS.</p>
+		</li>
+	      </div>
+	      
+		<div class="item">
+		<li><strong>Creeu els vostres mapes fàcilment:</strong> <a href="http://umap.openstreetmap.fr/es/">uMap</a>
+		  <p style="text-align:justify; margin-right:5px;"><img hpace="5px" width="75px" height="75px" align="right" src="assets/img/umap.png"><b>uMap</b> us permet crear mapes amb capes d'OpenStreetMap en un minut i fer-ne un <i>embed</i> (codi HTML generat automàticament per ser inserit) al vostre lloc web.</p>
+		</li>
+	      </div>
+
+		<div class="item">
+		<li><strong>Mapa en 3D:</strong> <a href="http://www.f4map.com/">F4Map</a>
+		  <p style="text-align:justify; margin-right:5px;"><img hpace="5px" width="75px" height="75px" align="right" src="assets/img/f4map.png">El lloc web (demo) d'<b>F4Map</b> us permet recrear un escenari d'OpenStreetMap en 3D. A les opcions gràfiques hi podreu seleccionar opcions com utilitzar les dades d'elevació del terreny, l'hora del dia o les condicions climatològiques. El navegador web ha de ser capaç de treballar amb <a href="https://www.khronos.org/webgl/" target="_blank">WebGL</a> per la correcta visualització.<br><br><img width="100%" src="assets/img/f4map-imatge.png"><center><a href="http://demo.f4map.com/#lat=41.4134833&lon=1.9691251&zoom=18&camera.theta=58.483" target="_blank">Ves al mapa de la Palma en 3D</a></center></p>
+		</li>
+	      </div>
+
+	    </ul>
+	  </p>
+	</div>
+
+
+	<!-- EXPERT -->
+	<div class="sidebar-pane" id="developer">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <h1>Mode expert</h1>
+	  <p style="text-align:justify; margin-right:5px;">Aquest panell mostra la informació de què disposa
+	   OpenStreetMap sobre cada element, i facilita enllaços per poder col·laborar amb el projecte.</p>
+
+	  <p style="text-align:justify; margin-right:5px;">Per visualitzar les etiquetes d'un element cal fer
+	   clic en algun dels punts d'interès del mapa, després de seleccionar-los des de l'apartat «Punts
+	   d'interès».</p>
+
+	  <p style="text-align:justify; margin-right:5px;">També podeu crear la vostra pròpia consulta amb
+	  OverpassAPI per cercar un punt d'interès que <em>no
+	  sigui</em> a la llista. Per fer-ho cal marcar la casella:</p>
+
+	  <div>
+	    <label><input id="expert-mode" type="checkbox"/><span>Consulta personalitzada amb OverpassAPI</span></label>
+	    <form id="expert-form" style="display: none;">
+	      <input id="expert-query" style="width: 100%;" name="query" type="text" placeholder="[internet_access=wlan][amenity=fuel]"/>
+	    </form>
+	  </div>
+	  <p class="tags"></p>
+	<h2>Notes d'OpenStreetMap</h2>
+	<p style="text-align:justify; margin-right:5px;">Des d'aquí podreu visualitzar les 
+	<a href="http://wiki.openstreetmap.org/wiki/Ca:Notes" target="_blank">notes d'OSM</a> al mapa, i
+	 accedir directament a la pàgina d'OSM de la nota. Les notes són anotacions ràpides per notificar
+	 d'errors a la zona. Podeu afegir-ne des de la 
+	<a href="http://www.openstreetmap.org/#map=9/41.5446/2.0132&layers=N" target="_blank">pàgina d'OSM</a>.
+	<p><button type="button" onclick="addnotes();">Mostra notes d'OSM al mapa</button></p>
+	<p><button type="button" onclick="clearnotes();">Oculta notes d'OSM al mapa</button></p>
+	</div>
+
+	<!--QUANT A-->
+	<div class="sidebar-pane" id="about">
+	  <div class="close-button"><span class="fa fa-close" onclick="javascript: sidebar.close()"></span>
+	  </div>
+	  <h1>Quant a...</h1>
+	  <p style="text-align:justify; margin-right:5px;"><img align="right" src="http://www.konfraria.org/icones/konfraria.jpeg">Aquest és un mapa creat per l'associació sense ànim de lucre <a href="http://www.konfraria.org" target="_blank">la Konfraria de la Vila del Pingüí de la Palma</a>, que a més a més ha participat activament en el grup d'<a href="http://wiki.openstreetmap.org/wiki/WikiProject_Catalan" target="_blank">OSM en català</a> així com en la incorporació de dades al mapa de la Palma de Cervelló al projecte <a href="" target="_blank">OpenStreetMap</a>. Trobareu un resum de les activitats més rellevants a la <a href="http://wiki.openstreetmap.org/wiki/User:KonfrareAlbert" target="_blank">pàgina de l'usuari KonfrareAlbert</a>, i també informació sobre la importació del cadastre a la pàgina de <a href="http://wiki.openstreetmap.org/wiki/Palma_de_Cervell%C3%B3" target="_blank">la Palma de Cervelló al wiki d'OSM</a>. Trobareu més informació sobre la Konfraria, i el nostre contacte en <a href="http://www.lapalmadecervello.cat/entitats/cultura/la-konfraria-de-la-vila-del-pingui" target="_blank">aquest enllaç</a>.</p>
+
+	  <p style="text-align:justify; margin-right:5px;"><img align="right" src="assets/img/github.png"><b>Codi del projecte:</b><br><a href="https://github.com/KonfrareAlbert/osm-pois" target="_blank">OSM la Palma de Cervelló</a> (llicència GPL) a GitHub.</p>
+
+	  <p style="text-align:justify; margin-right:5px;">Aquest lloc web és un <i><a href="http://ca.wikipedia.org/wiki/Fork" target="_blank">fork</a></i> del projecte <b>osm-pois</b> de <b><i>Manuel Kaufmann</b></i>, del que n'hem aprofitat gran part del codi (<a href="http://pois.elblogdehumitos.com.ar/#14/41.4829/1.9178" target="_blank">POIs</a> al blog d'Humitos, codi d'osm-pois a <a href="https://github.com/humitos/osm-pois" target="_blank">GitHub</a> amb llicència <a href="https://www.gnu.org/licenses/gpl-2.0.html" target="_blank">GPL</a>, Twitter: <a href="https://twitter.com/reydelhumo" target="_blank">@reydelhumo</a>).</p>
+
+	 <p>Eines que s'utilitzen per fer funcionar aquest lloc web:</p>
+
+	  <ul class="item">
+	    <li><a href="http://leafletjs.com/" target="_blank">Leafletjs</a> © Vladimir Agafonkin</li>
+	    <li>Connectors de Leaflet:
+	      <ol>
+		<li><a href="https://github.com/ebrelsford/Leaflet.loading" target="_blank">Leaflet.loading</a> © Eric Brelsford</li>
+		<li><a href="https://github.com/Turbo87/sidebar-v2/" target="_blank">L.control.sidebar</a> © Tobias Bieniek</li>
+		<li><a href="https://www.mapbox.com/mapbox.js/plugins/#leaflet-locatecontrol" target="_blank">L.Control.Locate</a> © Mapbox</li>
+		<li><a href="https://github.com/makinacorpus/Leaflet.RestoreView" target="_blank">Leaflet.RestoreView</a> © Makina Corpus</li>
+		<li><a href="https://github.com/kartenkarsten/leaflet-layer-overpass" target="_blank">L.OverPassLayer</a> © kartenkarsten</li>
+		<li><a href="https://github.com/mlevans/leaflet-hash" target="_blank">L.Hash</a> © Michael Lawrence Evans</li>
+		<li><a href="https://github.com/Leaflet/Leaflet.label" target="_blank">Leaflet.label</a> © Leaflet</li>
+		<li><a href="https://github.com/osmlab/leaflet-osm-notes" target="_blank">Leaflet-osm-notes</a> © Tom MacWright</li>
+		<li><a href="https://github.com/torfuspolymorphus/leaflet.zoomhome" target="_blank">Leaflet.zoomhome</a> © Torf</li>
+		<li><a href="https://github.com/rowanwins/leaflet-easyPrint" target="_blank">leaflet-easyPrint</a> © Rowan Winsemius</li>
+		<li><a href="https://github.com/mpetazzoni/leaflet-gpx" target="_blank">leaflet-gpx</a> © Maxime Petazzoni</li>
+		<li><a href="https://github.com/MrMufflon/Leaflet.Elevation" target="_blank">Leaflet.elevation</a> © Felix Bache</li>
+		<li><a href="https://github.com/ypid/opening_hours.js" target="_blank">opening_hours.js</a> © Robin Schneider</li>
+	      </ol>
+	    </li>
+	    <li><a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font-Awesome</a> © Dave Gandy</li>
+	    <li><a href="http://mapicons.nicolasmollet.com/" target="_blank">Map Icons</a> © Nicolas Mollet</li>
+	    <li><a href="http://jquery.com" target="_blank">jQuery</a> © The jQuery Foundation</li>
+	    <li><a href="https://github.com/medialize/URI.js" target="_blank">URI.js</a> © Medialize</li>
+	    <li><a href="https://github.com/janl/mustache.js" target="_blank">Mustache</a> © Jan Lehnardt</li>
+	    <li><a href="https://www.mapillary.com/" target="_blank">Mapillary</a> © Mapillary</li>
+	    <li><a href="https://graphhopper.com/" target="_blank">Graphhopper</a> © Graphhopper</li>
+	  </ul>
+
+	  <p style="text-align:justify; margin-right:5px;">També cal agrair a <b>Xavier Barnada</b> (<a href="https://twitter.com/Xevib" target="_blank">@Xevib</a>) i a <b>Marco Antonio</b> (<a href="https://twitter.com/51114u9" target="_blank">@51114u9</a>) la seva ajuda i contribucions.</p>
+	  <p style="text-align:justify; margin-right:5px;">Sense aquestes eines i ajudes seria impossible que funcionés aquest lloc web, a tots ells, moltes gràcies.</p>
+      
+	</div>
+       </div>
+      </div>
+    </div>
+
+    <div id="map" class="sidebar-map"></div>
+
+    <div id="spinner" style="display: none;">
+      <img src="assets/img/spinner.gif">
+    </div>
+
+    <!-- Javascripts -->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+    
+    <script src="assets/js/leaflet-osm-notes.js"></script>
+    <script src="assets/js/leaflet.zoomhome.js"></script>
+    <script src="assets/js/leaflet.label.js"></script>
+    <script src="assets/js/leaflet.restoreview.js"></script>
+    <script src="assets/js/leaflet-sidebar.js"></script>
+    <script src="assets/js/Control.Loading.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+    <script src="assets/print/jQuery.print.js"></script>
+    <script src="assets/print/leaflet.easyPrint.js"></script>
+    <script src="assets/js/leaflet.elevation-0.0.4.src.js"></script>
+    <script src="assets/js/gpx.js"></script>  
+    <script src="assets/js/URI.js"></script>
+    <script src="assets/js/suncalc.js"></script>
+    <script src="assets/js/opening_hours.js"></script> 
+    <script src="assets/js/OverPassLayer.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.js"></script>
+    <script src="assets/js/leaflet-hash.js"></script>
+    <script src="assets/js/mustache.js"></script>
+    <script src="assets/js/tags-parsers.js"></script>
+    <script src="assets/js/pois-type.js"></script>
+    <script src="assets/js/site.functions.js"></script>
+    <script src="assets/js/site.js"></script>
+
+  </body>
+</html>
