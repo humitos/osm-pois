@@ -10,6 +10,7 @@ http://upoi.org
 
  - http://www.konfraria.org/osm/cerca/web/
  - http://mapa.barriohacker.net/
+ - http://nominatim.misiones.gob.ar/pdi/
 
 ## Attribution
 
