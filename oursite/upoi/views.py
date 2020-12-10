@@ -1,5 +1,6 @@
-from django.http import HttpResponse
-
+from django.shortcuts import render
+from django.urls import reverse
+from django.views import View
 
 def index(request):
-    return HttpResponse("Jelou, Mundo. ¡Bienvenid@s al índice de UPOI Django!")
+    return render(request, 'upoi/index.html')
