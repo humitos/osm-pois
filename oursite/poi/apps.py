@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class UpoiConfig(AppConfig):
-    name = 'upoi'
+class PoiConfig(AppConfig):
+    name = 'poi'
