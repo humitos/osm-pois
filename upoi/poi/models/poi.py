@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.gis.db import models
+# from django.contrib.gis.db import models
 
 
 class Poi(models.Model):
@@ -8,5 +8,6 @@ class Poi(models.Model):
     phone = models.CharField(max_length=20)
     email = models.CharField(max_length=50)
     website = models.CharField(max_length=150)
-    coordinates = models.PointField()
+    # coordinates = models.PointField()
+    coordinates = models.CharField(max_length=100)
     social_media = models.CharField(max_length=300)
