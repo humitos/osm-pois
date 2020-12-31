@@ -11,3 +11,7 @@ class Poi(models.Model):
     # coordinates = models.PointField()
     coordinates = models.CharField(max_length=100)
     social_media = models.CharField(max_length=300)
+
+
+    def __str__(self):
+        return self.name
