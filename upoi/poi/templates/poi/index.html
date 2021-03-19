@@ -1,4 +1,9 @@
-  <head>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puntos de Interés</title>
 
     <meta charset="utf-8">
@@ -8,15 +13,15 @@
     <meta property="og:url" content="https://upoi.org/" />
     <meta property="og:image" content="https://upoi.org/assets/img/preview.jpg" />
     <meta property="og:description" content="Encuentra los puntos de interés cerca de dónde estés." />
-    <link rel="shortcut icon" href="assets/img/favicon.ico"/>
-    <link rel="stylesheet" href="assets/css/leaflet.css" />
-    <link rel="stylesheet" href="assets/css/Control.Loading.css" />
-    <link rel="stylesheet" href="assets/css/Control.Geocoder.css" />
-    <link rel="stylesheet" href="assets/css/leaflet.label.css" />
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/site.css">
-    <link rel="stylesheet" href="assets/css/leaflet-sidebar.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'poi/css/site.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'poi/css/leaflet-sidebar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'poi/css/leaflet.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'poi/css/Control.Loading.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'poi/css/Control.Geocoder.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'poi/css/leaflet.label.css' %}">
+    <link rel="shortcut icon" href="{% static 'poi/img/favicon.ico' %}"/>
 
     <link href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.css" rel="stylesheet" />
     <!--[if lt IE 9]>
@@ -64,19 +69,19 @@
 	  se muestra al inicio (o bien haciendo click en <em>"la
 	  casita"</em>), pudiendo seleccionar varios a la vez.</p>
 
-	  <img src="assets/img/help-select-pois.jpg">
+	  <img src="{% static 'poi/img/help-select-pois.jpg' %}">
 
 	  <p>Una vez seleccionados los puntos de interés, los mismos
 	  se mostrarán en el mapa luego de algunos segundos
 	  (dependiendo de la conexión a internet) con diferentes
 	  íconos y colores para una rápida visualización.</p>
 
-	  <img src="assets/img/help-show-pois.jpg">
+	  <img src="{% static 'poi/img/help-show-pois.jpg' %}">
 
 	  <p>Si al seleccionar los POIs que quieres mostrar en el
 	  mapa, te aparece un mensaje como este:</p>
 
-	  <img src="assets/img/help-message.jpg">
+	  <img src="{% static 'poi/img/help-message.jpg' %}">
 
 	  <p>Tenés que agrandar un poco más el mapa para que aparezcan
 	  los puntos.</p>
@@ -85,20 +90,20 @@
 	  achicar el mapa (también funciona con la ruedita del
 	  mouse).</p>
 
-	  <img src="assets/img/help-controls.jpg">
+	  <img src="{% static 'poi/img/help-controls.jpg' %}">
 
 	  <p>La "lupa" sirve para buscar una ciudad diferente a la que
 	  se está mostrando en el mapa, ingresando el nombre y la
 	  provincia de la misma. Por ejemplo, "capilla del monte,
 	  córdoba" y presionando <em>Enter</em>.</p>
 
-	  <img src="assets/img/help-geoposition.jpg">
+	  <img src="{% static 'poi/img/help-geoposition.jpg' %}">
 
 	  <p>Además hay un ícono con una "flechita" que sirve para
 	  centrar el mapa en la posición en la que te encuentras
 	  actualmente.</p>
 
-	  <img src="assets/img/help-my-position.jpg">
+	  <img src="{% static 'poi/img/help-my-position.jpg' %}">
 
 	  <p>¡Espero que te sea de utilidad!</p>
 
@@ -309,27 +314,27 @@
     <div id="map" class="sidebar-map"></div>
 
     <div id="spinner" style="display: none;">
-      <img src="assets/img/spinner.gif">
+        <img src="{% static 'poi/img/spinner.gif' %}">
     </div>
 
     <!-- Javascripts -->
-    <script src="assets/js/leaflet.js"></script>
+    <script src="{% static 'js/leaflet.js' %}"></script>
+    <script src="{% static 'js/leaflet.label.js' %}"></script>
+    <script src="{% static 'js/Control.Geocoder.js' %}"></script>
+    <script src="{% static 'js/leaflet.restoreview.js' %}"></script>
+    <script src="{% static 'js/leaflet-sidebar.js' %}"></script>
+    <script src="{% static 'js/Control.Loading.js' %}"></script>
 
-    <script src="assets/js/leaflet.label.js"></script>
-    <script src="assets/js/Control.Geocoder.js"></script>
-    <script src="assets/js/leaflet.restoreview.js"></script>
-    <script src="assets/js/leaflet-sidebar.js"></script>
-    <script src="assets/js/Control.Loading.js"></script>
     <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.js"></script>
     <script src="https://code.jquery.com/jquery-1.8.0.min.js"></script>
-    <script src="assets/js/URI.js"></script>
-    <script src="assets/js/OverPassLayer.js"></script>
-    <script src="assets/js/leaflet-hash.js"></script>
-    <script src="assets/js/mustache.js"></script>
-    <script src="assets/js/tags-parsers.js"></script>
-    <script src="assets/js/pois-type.js"></script>
-    <script src="assets/js/site.functions.js"></script>
-    <script src="assets/js/site.js"></script>
+    <script src="{% static 'js/URI.js' %}"></script>
+    <script src="{% static 'js/OverPassLayer.js' %}"></script>
+    <script src="{% static 'js/leaflet-hash.js' %}"></script>
+    <script src="{% static 'js/mustache.js' %}"></script>
+    <script src="{% static 'js/tags-parsers.js' %}"></script>
+    <script src="{% static 'js/pois-type.js' %}"></script>
+    <script src="{% static 'js/site.functions.js' %}"></script>
+    <script src="{% static 'js/site.js' %}"></script>
 
     <!-- Piwik -->
     <script type="text/javascript">

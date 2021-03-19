@@ -53,7 +53,7 @@ function callback(data) {
         }
 
         var markerIcon  = L.icon({
-            iconUrl: 'assets/img/icons/' + poi.iconName + '.png',
+            iconUrl: '/static/poi/img/icons/' + poi.iconName + '.png',
             iconSize: [32, 37],
             iconAnchor: [18.5, 35],
             popupAnchor: [0, -27]
@@ -128,7 +128,7 @@ function show_pois_checkboxes() {
         var checkbox = Mustache.render(
             '<div class="poi-checkbox"> \
                 <label> \
-                    <img src="assets/img/icons/{{icon}}.png"></img> \
+                    <img src="/static/poi/img/icons/{{icon}}.png"></img> \
                     <input type="checkbox" data-key="{{key}}" onclick="setting_changed()"><span>{{name}}</span> \
                 </label> \
             </div>',
