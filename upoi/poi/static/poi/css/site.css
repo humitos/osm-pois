@@ -104,3 +104,12 @@ ul {
     -moz-border-radius: 3px;
     border-radius: 3px;
 }
+
+.poi-fromdb {
+    margin-left: 50% !important;
+    background-color: black;
+    color: white;
+    opacity: 50%;
+    position:relative;
+    z-index: 1000;
+}

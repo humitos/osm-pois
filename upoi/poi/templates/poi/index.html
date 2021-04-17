@@ -31,20 +31,6 @@
 
   <body>
 
-	{% block content %}
-    <div class="content">
-        {% if all_poi_list %}
-            <ul>
-            {% for poi in all_poi_list %}
-                <li><a href="">{{ poi.name }}</a></li>
-            {% endfor %}
-            </ul>
-        {% else %}
-            <p>No pois, sorry.</p>
-        {% endif %}
-    </div>
-	{% endblock %}
-
     <div id="sidebar" class="sidebar collapsed">
       <!-- Nav tabs -->
       <ul class="sidebar-tabs" role="tablist">
@@ -325,8 +311,22 @@
 
       </div>
     </div>
+    <div id="map" class="sidebar-map">
 
-    <div id="map" class="sidebar-map"></div>
+		<div class="poi-fromdb">
+			{% if all_poi_list %}
+				<ul>
+				{% for poi in all_poi_list %}
+					<li><a href="" style="color:white;">{{ poi.name }}</a></li>
+				{% endfor %}
+				</ul>
+			{% else %}
+				<p>No pois, sorry.</p>
+			{% endif %}
+		</div>
+	
+	
+	</div>
 
     <div id="spinner" style="display: none;">
         <img src="{% static 'poi/img/spinner.gif' %}">
