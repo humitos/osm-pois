@@ -1,3 +1,7 @@
+import os
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'upoi.settings')
+import django
+django.setup()
 from django.test import TestCase
 from django.urls import reverse
 
