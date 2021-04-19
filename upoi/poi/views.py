@@ -7,7 +7,7 @@ from .models import Poi
 
 class IndexView(generic.ListView):
     template_name = 'poi/index.html'
-    context_object_name = 'all_poi_list'
+    context_object_name = 'all_pois_from_db'
         
     def get_queryset(self):
         """

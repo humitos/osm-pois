@@ -314,9 +314,9 @@
     <div id="map" class="sidebar-map">
 
 		<div class="poi-fromdb">
-			{% if all_poi_list %}
+			{% if all_pois_from_db %}
 				<ul>
-				{% for poi in all_poi_list %}
+				{% for poi in all_pois_from_db %}
 					<li><a href="" style="color:white;">{{ poi.name }}</a></li>
 				{% endfor %}
 				</ul>
