@@ -6,7 +6,7 @@ from rest_framework import routers
 
 
 router = routers.DefaultRouter()
-router.register('poi', PoiViewset)
+router.register('pois', PoiViewset)
 
 app_name = 'poi'
 
