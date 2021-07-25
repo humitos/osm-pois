@@ -337,15 +337,30 @@
     <script src="{% static 'js/site.js' %}"></script>
 
 
-	<!-- Pois from local DB -->
+
+
 	<script type="text/javascript">
-		{% for poi in all_pois_from_db %}
-			var myIcon = L.icon({
-				iconUrl: '/static/poi/img/icons/coffee.png',
-				iconSize: [35, 50]
-			});
-			var marker = L.marker([{{poi.coordinates}}], {icon: myIcon}).bindPopup('{{poi.name}}').addTo(map);
-		{% endfor %}
+	fetch('http://127.0.0.1:8000/api/pois')
+		.then(res => {
+			return res.json()
+		})
+		.then(data => {
+			//data.forEach(element => console.log(element))
+			
+			data.forEach(element => {
+				console.log(element)
+				var position = element.coordinates.split(', ');
+				var name = element.name;
+				var myIcon = L.icon({
+					iconUrl: '/static/poi/img/icons/coffee.png',
+					iconSize: [35, 50]
+				});
+				var marker = L.marker(position, {icon: myIcon}).bindPopup(element.name).addTo(map)
+			})
+			
+		})
+		.catch(error => console.log('ERROR'))
+
 	</script>
 
     <!-- Piwik -->
